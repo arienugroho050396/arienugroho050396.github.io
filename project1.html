@@ -1,0 +1,228 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>EDA Telco Customer Churn</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">Home</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">main page</a></li>
+							<li class="active"><a href="project1.html">EDA Telco Customer Churn</a></li>
+							<li><a href="aboutme.html">About Me</a></li>
+							<li><a href="contactme.html">Contact</a></li>				
+						</ul>
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/in/mocharienugroho/" class="icon brands fa-linkedin"><span class="label">Facebook</span></a></li>
+							<li><a href="https://github.com/arienugroho050396" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+							<li><a href="https://medium.com/@arienugroho650" class="icon brands fa-medium"><span class="label">Medium</span></a></li>
+							<li><a href="https://www.instagram.com/moch_arie_n/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<span class="date">December 12, 2021</span>
+									<h1>Exploratory Data Analysis<br />
+									Telco Customer Churn</h1>
+								</header>
+								<div class="image fit"><img src="images/project1cover.jpg" alt="" /></div>
+								<ul class="actions">
+										<li><a href="https://github.com/arienugroho050396/EDA-for-Telco-Customer-Churn" class="button">Repository</a></li>
+										<li><a href="https://www.kaggle.com/blastchar/telco-customer-churn" class="button">Kaggle Datasheet</a></li>
+									</ul>
+								<p>Have you ever disappointed with a telecommunications company and finally decided to move to another company? Either because the price is too expensive, the signal is not good, or because the service is not good. Now it's called Customer Churn. In this Article, Arie will provide details about EDA and try to visualize the data obtained.</p>
+								<h2>Data Understanding</h2>
+								<h3>Target : </h3>
+									<li><b>Churn</b> — Whether the customer churned or not (Yes or No)</li>
+								<p>
+								<h3>Numeric Feature : </h3>
+									<li><b>Tenure</b> — Number of months the customer has been with the company.</li>
+									<li><b>MonthlyCharges</b> — Monthly amount charged to customers</li>
+									<li><b>TotalCharges</b> — Total amount charged to customers.</li>
+								</p>
+								<h3>Categorical Feature : </h3>
+									<li><b>Customer ID</b> — The Identity of customer.</li>
+									<li><b>Gender</b> — Male/Female.</li>
+									<li><b>SeniorCitizen</b> — Whether the customer is a senior citizen or not (1, 0).</li>
+									<li><b>Partner</b> — Whether the customer has a partner or not (Yes, No).</li>
+									<li><b>Dependents</b> — Whether the customer has dependents or not (Yes, No).</li>
+									<li><b>PhoneService</b> — Whether the customer has telephone service or not (Yes, No).</li>
+									<li><b>InternetService</b> — Type of customer internet service (DSL, Fiber Optic, None).</li>
+									<li><b>OnlineSecurity</b> — Does the customer have an Online Security add-on (Yes, No, No Internet Service).</li>
+									<li><b>OnlineBackup</b> — Does the customer have an Online Backup add-on (Yes, No, No Internet Service).</li>
+									<li><b>DeviceProtection</b> — Does the customer have a Device Protection add-on (Yes, No, No Internet Service).</li>
+									<li><b>TechSupport</b> — Does the customer have a Technical Support add-on (Yes, No, No Internet Service).</li>
+									<li><b>StreamingTV</b> — Whether the customer has streaming TV or not (Yes, No, No Internet Service).</li>
+									<li><b>StreamingMovies</b> — Whether the subscriber has streaming movies or not (Yes, No, No Internet Service).</li>
+									<li><b>Contract</b> — Term of the customer's contract (Monthly, 1-Year, 2-Year).</li>
+									<li><b>PaperlessBilling</b> — Whether the customer has a paperless bill or not (Yes, No).</li>
+									<li><b>PaymentMethod</b> — Customer payment methods (E-Check, Mailed Check, Bank Transfer (Auto), Credit Card (Auto)).</li>
+								<p>
+								<h2>Import Package and Data</h2></p>
+								<p>Started with imports of some basic libraries that are needed throughout the case. This includes Pandas and Numpy for data handling and processing as well as Matplotlib and Seaborn for visualization.</p>
+								<pre><code>import pandas as pd
+import numpy as np
+import re
+
+import matplotlib.pyplot as plt
+import seaborn as sns
+%matplotlib inline
+sns.set()
+</code></pre>
+
+								<p>For this exercise, the data set (.csv format) is downloaded to a local folder, read into the Jupyter notebook and stored in a Pandas DataFrame.</p>
+								<pre><code>import pandas as pd
+df = pd.read_csv('Telco Customer Churn.csv')
+#overview dari dataset
+df.head()
+</code></pre>
+
+								<p><h2>Initial EDA</h2></p>
+								<p>The first part of EDA the data frame is evaluated for structure, columns included and data types to get a general understanding for the data set. Get a summary on the data frame include data types, shape, and memory storage.</p>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image fit"><img src="images/project1image/image3.jpg" alt="" /></span></div>
+										</div>
+								</div>
+								<p>Get statistical information on numerical features.</p>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image fit"><img src="images/project1image/image4.jpg" alt="" /></span></div>
+										</div>
+								</div>
+
+								<div class="image fit"><img src="images/project1image/image5.jpg" alt="" /></div>
+
+								<p>
+								<h2>Insight(Data Visualization + Summary)</h2></p>
+								<p><h3>Display Frequency Distribution For Churn</h3></p>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image fit"><img src="images/project1image/image6.jpg" alt="" /></span></div>
+											<div class="col-4"><span class="image fit"><img src="images/project1image/image7.jpg" alt="" /></span></div>
+										</div>
+								</div>
+								<p>From the picture above, it can be seen that the overall distribution of data customers tend not to churn, with details of churn as much as 27% and non-churn as much as 73%. Since churn is the target variable, it will be used as an element in most EDA variables.</p>
+
+								<p><h3>Exploratory Data Analysis (EDA) Numeric Variable</h3></p>
+								<div class="image fit"><img src="images/project1image/image8.jpg" alt="" /></div>
+								<p><h4>Insight: </h4>
+									<li>Churn customers had significantly lower tenure with a median of 10 months compared to a median of 38 months for non-churn.</li>
+									<li>Churn customers have higher monthly costs with a median of 80 USD and a much lower interquartile range than non-churners (median around 65 USD).</li>
+									<li>We can see that in MonthlyCharges there is a tendency that the higher the monthly fee charged, the higher the tendency to churn, from here service providers can set prices around 20 - 60 to reduce the tendency to churn.</li>
+								</p>
+								<p><h3>Exploratory Data Analysis (EDA) Categorical Variable</h3></p>
+								<div class="image fit"><img src="images/project1image/image9.jpg" alt="" /></div>
+								<p><h4>Insight: </h4>
+									<li>Senior Citizen churn rate is much higher than non-senior churn rate.</li>
+									<li>The churn rate for Month to Month contracts is much higher than for other contract terms.</li>
+									<li>Churn customer without partners has a higher churn rate.</li>
+									<li>Churn customer without children has a much higher churn rate.</li>
+									<li>Payment method electronic check shows much higher churn rate than other payment methods.</li>
+									<li>Customers with InternetService fiber optic as part of their contract have much higher churn rate.</li>
+								</p>
+
+								<p><h3>Feature Engineering Action</h3></p>
+								<p><h4>Check Outlier in Numerical Feature</h4></p>
+								<p>Check outlier by applying the IQR methid checking if values are way outside the IQR borders or visualize with boxplot to see the outliers.</p>
+								<div class="image fit"><img src="images/project1image/image10.jpg" alt="" /></div>
+								<p>There are no Ouliers on the numerical features when checked using the boxplot and the IQR method, so there is no need to do anything.</p>
+								<p>The next step is drop the rows with missing values for data cleaning.Based on the data types and the values, following actions are defined to preprocess/engineer the features for machine readibility and further analysis:</p>
+								<p><b>Column Removed</b>
+									<li>CustomerID: Not Relevan</li>
+								</p>						
+								<p><b>No Need Action</b>
+									<li>SeniorCitizen</li>
+								</p>
+								<p><b>Label encoding</b> The following features are categorical and each take on 2 values (mostly yes/no) — therefore are transformed to binary integers
+									<li>Gender</li>
+									<li>Partner</li>
+									<li>Dependents</li>
+									<li>Churn</li>
+									<li>PhoneService</li>
+									<li>PaperlessBilling</li>
+								</p>
+								<p><b>One Hot Encoding</b> The following features are categorical, yet not ordinal (no ranking) but take on more than 2 values. For each value, a new variable is created with a binary integer indicating if the value occured in a data entry or not (1 or 0).
+									<li>MultipleLines</li>
+									<li>InternetService</li>
+									<li>OnlineSecurity</li>
+									<li>DeviceProtection</li>
+									<li>TechSupport</li>
+									<li>StreamingTV</li>
+									<li>StreamingMovies</li>
+									<li>Contract</li>
+									<li>PaymentMethod</li>
+								</p>
+								<p><b>Min-Max Scaling</b> Values of numerical features are rescaled between a range of 0 and 1. Min-max scaler is the standard approach for scaling. For normally distributed features standard scaler could be used, which scales values around a mean of 0 and a standard deviation of 1. For simplicity we use min-max scaler for all numerical features.
+									<li>tenure</li>
+									<li>TotalCharges</li>
+									<li>Monthly Charges</li>
+								</p>
+								<p>Generate new feature "Number_AdditionalSerivices" by summing up the number of add-on service consumed. Then Generate countplot for the new feature.</p>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image fit"><img src="images/project1image/image11.jpg" alt="" /></span></div>
+										</div>
+								</div>						
+								<p><h4>Insight: </h4>
+									<li>The countplot shows a very high churn rate for customers that have 1 additional service.</li>
+									<li>Customers with a very high number of additional services do have a low churn rate.</li>
+								</p>
+
+								<p><h3>Correlation analysis</h3></p>
+								<div class="image fit"><img src="images/project1image/image12.jpg" alt="" /></div>
+								<p><h4>Insight: </h4>
+									<li>Month-to-month contract duration is the biggest driver of churn..</li>
+									<li>High tenure ranks as the strongest factor for non-rotation and the strongest feature overall. This is also supported by the boxplot in the EDA step.</li>
+								</p>
+
+							</section>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+
+					</footer>
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
