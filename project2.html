@@ -1,0 +1,338 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>EDA Ames House</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">Home</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">main page</a></li>
+							<li class="active"><a href="project2.html">EDA Ames House</a></li>
+							<li><a href="aboutme.html">About Me</a></li>
+							<li><a href="contactme.html">Contact</a></li>				
+						</ul>
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/in/mocharienugroho/" class="icon brands fa-linkedin"><span class="label">Facebook</span></a></li>
+							<li><a href="https://github.com/arienugroho050396" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+							<li><a href="https://medium.com/@arienugroho650" class="icon brands fa-medium"><span class="label">Medium</span></a></li>
+							<li><a href="https://www.instagram.com/moch_arie_n/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<span class="date">December 27, 2021</span>
+									<h1>Exploratory Data Analysis<br />
+									Ames House</h1>
+								</header>
+								<div class="image fit"><img src="images/project2cover.jpg" alt="" /></div>
+								<ul class="actions">
+										<li><a href="https://github.com/arienugroho050396/EDA-Ames-Housing-dataset" class="button">Repository</a></li>
+										<li><a href="https://www.kaggle.com/c/house-prices-advanced-regression-techniques/data" class="button">Kaggle Datasheet</a></li>
+									</ul>
+								<p>The Ames housing data set (De Cock 2011) is an excellent resource for learning about models that we will use throughout this project. It contains data on 2,930 properties in Ames, Iowa, including columns related to house characteristics, location, lot information, rating of condition and quality and saleprice. Arie will provide details about EDA, and make insight from data visualize using R Programming Language.</p>
+								<h2>Data Fields</h2>
+									<li><b>SalePrice</b> — the property's sale price in dollars. This is the target variable that you're trying to predict.</li>
+									<li><b>MSSubClass</b> — The building class</li>
+									<li><b>MSZoning</b> — The general zoning classification</li>
+									<li><b>LotFrontage</b> — Linear feet of street connected to property</li>
+									<li><b>LotArea</b> — Lot size in square feet</li>
+									<li><b>Street</b> — Type of road access</li>
+									<li><b>Alley</b> — Type of alley access</li>
+									<li><b>LotShape</b> — General shape of property</li>
+									<li><b>LandContour</b> — Flatness of the property</li>
+									<li><b>Utilities</b> — Type of utilities available</li>
+									<li><b>LotConfig</b> — Lot configuration</li>
+									<li><b>LandSlope</b> — Slope of property</li>
+									<li><b>Neighborhood</b> — Physical locations within Ames city limits</li>
+									<li><b>Condition1</b> — Proximity to main road or railroad</li>
+									<li><b>Condition2</b> — Proximity to main road or railroad (if a second is present)</li>
+									<li><b>BldgType</b> — Type of dwelling</li>
+									<li><b>HouseStyle</b> — Style of dwelling</li>
+									<li><b>OverallQual</b> — Overall material and finish quality</li>
+									<li><b>OverallCond</b> — Overall condition rating</li>
+									<li><b>YearBuilt</b> — Original construction date</li>
+									<li><b>YearRemodAdd</b> — Remodel date</li>
+									<li><b>RoofStyle</b> — Type of roof</li>
+									<li><b>RoofMatl</b> — Roof material</li>
+									<li><b>Exterior1st</b> — Exterior covering on house</li>
+									<li><b>Exterior2nd</b> — Exterior covering on house (if more than one material)</li>
+									<li><b>MasVnrType</b> — Masonry veneer type</li>
+									<li><b>MasVnrArea</b> — Masonry veneer area in square feet</li>
+									<li><b>ExterQual</b> — Exterior material quality</li>
+									<li><b>ExterCond</b> — Present condition of the material on the exterior</li>
+									<li><b>Foundation</b> — Type of foundation</li>
+									<li><b>BsmtQual</b> — Height of the basement</li>
+									<li><b>BsmtCond</b> — General condition of the basement</li>
+									<li><b>BsmtExposure</b> — Walkout or garden level basement walls</li>
+									<li><b>BsmtFinType1</b> — Quality of basement finished area</li>
+									<li><b>BsmtFinSF1</b> — Type 1 finished square feet</li>
+									<li><b>BsmtFinType2</b> — Quality of second finished area (if present)</li>
+									<li><b>BsmtFinSF2</b> — Type 2 finished square feet</li>
+									<li><b>BsmtUnfSF</b> — Unfinished square feet of basement area</li>
+									<li><b>TotalBsmtSF</b> — Total square feet of basement area</li>
+									<li><b>Heating</b> — Type of heating</li>
+									<li><b>HeatingQC</b> — Heating quality and condition</li>
+									<li><b>CentralAir</b> — Central air conditioning</li>
+									<li><b>Electrical</b> — Electrical system</li>
+									<li><b>1stFlrSF</b> — First Floor square feet</li>
+									<li><b>2ndFlrSF</b> — Second floor square feet</li>
+									<li><b>LowQualFinSF</b> — Low quality finished square feet (all floors)</li>
+									<li><b>GrLivArea</b> — Above grade (ground) living area square feet</li>
+									<li><b>BsmtFullBath</b> — Basement full bathrooms</li>
+									<li><b>BsmtHalfBath</b> — Basement half bathrooms</li>
+									<li><b>FullBath</b> — Full bathrooms above grade</li>
+									<li><b>HalfBath</b> — Half baths above grade</li>
+									<li><b>Bedroom</b> — Number of bedrooms above basement level</li>
+									<li><b>Kitchen</b> — Number of kitchens</li>
+									<li><b>KitchenQual</b> — Kitchen quality</li>
+									<li><b>TotRmsAbvGrd</b> — Total rooms above grade (does not include bathrooms)</li>
+									<li><b>Functional</b> — Home functionality rating</li>
+									<li><b>Fireplaces</b> — Number of fireplaces</li>
+									<li><b>FireplaceQu</b> — Fireplace quality</li>
+									<li><b>GarageType</b> — Garage location</li>
+									<li><b>GarageYrBlt</b> — Year garage was built</li>
+									<li><b>GarageFinish</b> — Interior finish of the garage</li>
+									<li><b>GarageCars</b> — Size of garage in car capacity</li>
+									<li><b>GarageArea</b> — Size of garage in square feet</li>
+									<li><b>GarageCond</b> — Garage condition</li>
+									<li><b>PavedDrive</b> — Paved driveway</li>
+									<li><b>WoodDeckSF</b> — Wood deck area in square feet</li>
+									<li><b>OpenPorchSF</b> — Open porch area in square feet</li>
+									<li><b>EnclosedPorch</b> — Enclosed porch area in square feet</li>
+									<li><b>3SsnPorch:</b> — Three season porch area in square feet</li>
+									<li><b>ScreenPorch</b> — Screen porch area in square feet</li>
+									<li><b>PoolArea</b> — Pool area in square feet</li>
+									<li><b>PoolQC</b> — Pool quality</li>
+									<li><b>Fence</b> — Fence quality</li>
+									<li><b>MiscFeature</b> — Miscellaneous feature not covered in other categories</li>
+									<li><b>MiscVal</b> — $Value of miscellaneous feature</li>
+									<li><b>MoSold</b> — Month Sold</li>
+									<li><b>YrSold</b> — Year Sold</li>
+									<li><b>SaleType</b> — Type of sale</li>
+									<li><b>SaleCondition</b> — Condition of sale</li>
+								<p>
+								<h2>Import Package and Data</h2></p>
+								<p>Started with imports of some basic libraries that are needed throughout the case. This includes dplyr, tidyr, stringr, lubridate. For visualization we use ggplot2 and plotly.</p>
+								<pre><code>library(dplyr)
+library(tidyr)
+library(stringr)
+library(lubridate)
+library(ggplot2)
+library(plotly)
+</code></pre>
+
+								<p>For this exercise, the data set (.csv format) is downloaded to a local folder.</p>
+								<pre><code>df <- read.csv('House Price.csv')
+</code></pre>
+
+								<p><h2>Start With the Target</h2></p>
+								<p>Perform a univariate analysis of the target variable, namely SalePrice and describe what insights can be obtained.</p>
+								<pre><code>##find missing value:
+df %>% is.na() %>% colSums()
+#no missing value in SalePrice
+
+##check mean, mode, Min Value, Max Value, and Standard Deviation 
+
+getmode <- function(v) {
+  uniqv <- unique(v)
+  uniqv[which.max(tabulate(match(v, uniqv)))]
+}
+
+getmode(df$SalePrice) #mode
+sd(df$SalePrice) #SD
+summary(df$SalePrice) #min, max, median
+
+ggplot(data = df, mapping = aes(x = SalePrice)) + 
+  geom_histogram(bins = 50, color = "white", fill = "coral") #Visualize histogram SalePrice
+
+ggplot(df, aes(SalePrice)) +
+  geom_histogram(binwidth = 100000) #Visualize histogram with binwidth 100000
+</code></pre>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image fit"><img src="images/project2image/1.jpg" alt="" /></span></div>
+										</div>
+								</div>
+								<p>We can look visualize histogram with binwidth 100000.</p>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image fit"><img src="images/project2image/2.jpg" alt="" /></span></div>
+										</div>
+								</div>
+								<p>
+								<h3>Insight</h3></p>
+								<p><ul><li> From the histogram display, it can be concluded that the sale price data is not normally distributed and tends to be skewed to the left.</li>
+									<li>the most sold house with a price of 140000.</li>
+									<li>The most expensive house is sold for 755000 which is an outlier from the data.</li>
+									<li>Saleprice house data is distributed under the price of 250000.</li></ul>
+								</p>
+								
+								<p><h2>Find the 5 variables with the strongest correlation (positively or negatively) with SalePrice</h2></p>
+								<pre><code>cor.test(df$MSSubClass,df$SalePrice) # -0.084
+cor.test(df$LotFrontage,df$SalePrice) # 0.35
+cor.test(df$LotArea,df$SalePrice) # 0.26
+cor.test(df$OverallQual,df$SalePrice) # 0.790
+cor.test(df$OverallCond,df$SalePrice) # -0.077
+cor.test(df$YearBuilt,df$SalePrice) # 0.522
+cor.test(df$YearRemodAdd,df$SalePrice) # 0.507
+cor.test(df$MasVnrArea,df$SalePrice) # 0.477
+cor.test(df$BsmtFinSF1,df$SalePrice) # 0.386
+cor.test(df$BsmtFinSF2,df$SalePrice) # -0.011
+cor.test(df$BsmtUnfSF,df$SalePrice) # 0.214
+cor.test(df$TotalBsmtSF,df$SalePrice) # 0.613
+cor.test(df$X1stFlrSF,df$SalePrice) # 0.605
+cor.test(df$X2ndFlrSF,df$SalePrice) # 0.319
+cor.test(df$LowQualFinSF,df$SalePrice) # -0.0256
+cor.test(df$GrLivArea,df$SalePrice) # 0.708
+cor.test(df$BsmtFullBath,df$SalePrice)# 0.227
+cor.test(df$BsmtHalfBath,df$SalePrice) # -0.0168
+cor.test(df$BedroomAbvGr,df$SalePrice) # 0.168
+cor.test(df$KitchenAbvGr,df$SalePrice) # -0.135
+cor.test(df$TotRmsAbvGrd,df$SalePrice) # 0.533
+cor.test(df$Fireplaces,df$SalePrice) # 0.466
+cor.test(df$GarageYrBlt,df$SalePrice) # 0.486
+cor.test(df$GarageCars,df$SalePrice) # 0.640
+cor.test(df$GarageArea,df$SalePrice) # 0.623
+cor.test(df$WoodDeckSF,df$SalePrice) # 0.324
+cor.test(df$OpenPorchSF,df$SalePrice) # 0.315
+cor.test(df$EnclosedPorch,df$SalePrice) # -0.128
+cor.test(df$X3SsnPorch,df$SalePrice) # 0.044
+cor.test(df$ScreenPorch,df$SalePrice) # 0.111
+cor.test(df$PoolArea,df$SalePrice) # 0.0924
+cor.test(df$MiscVal,df$SalePrice) # -0.0211
+cor.test(df$MoSold,df$SalePrice) # 0.0464
+cor.test(df$YrSold,df$SalePrice) # -0.0289
+</code></pre>
+								<p>
+								<h3>Insight</h3></p>
+								<h4>POSITIVE STRONG CORRELATION</h4>
+								<p><ul><li> <b>OverallQual :</b> this makes sense if the higher the SalePrice, the quality of the house can be said to be better from the range 1-10.</li>
+									<li><b>GrLivArea :</b> this makes sense if the higher the SalePrice of a house, the house will have a large living room size too.</li>
+									<li><b>GarageCars :</b> this makes sense if the higher the SalePrice the house will have a garage that can fit a few more cars than the cheaper house.</li>
+									<li><b>GarageArea :</b> this makes sense because a house with a high sale price will have a high garage area too.</li>
+									<li><b>TotalBsmtSF :</b> this makes sense because houses with high sales prices have a large basement too.</li></ul></p>
+								<h4>NEGATIVE STRONG CORRELATION</h4>
+								<p><ul><li> <b>EnclosedPorch :</b> Saleprice is weakly negatively correlated with the enclosed patio area so it can be ignored and this doesn't make sense because neither houses with low salesprice nor high average have a covered terrace.</li>
+									<li><b>KitchenAbvGr :</b> SalePrice has a weak negative correlation with KitchenAbvGr so it can be ignored and this can be said to be unreasonable/does not affect SalePrice because the average house has 1 kitchen, either cheap or expensive.</li>
+									<li><b>LowQualFinSF :</b> SalePrice has a weak negative correlation with LowQualFinSF and this can be said to be reasonable because the higher the price, the lower the floor area of low quality, but this can also be ignored because the correlation is low.</li>
+									<li><b>MSSubClass :</b> Saleprice has a weak negative correlation with MSSubClass so this can be ignored and this also doesn't make sense because every number from MSSubClass is categorical data where the highest SalePrice is in categorical 60 which is a new house with 2 floors.</li>
+									<li><b>OverallCond :</b> SalePrice has a weak negative correlation with OverallCond so this can be ignored and this doesn't make sense because the highest and lowest salesprice are in the same OverallCond value of 5.</li></ul>
+								</p>
+
+								<p><h2>It is never hurt to test basic knowledge</h2></p>
+								<p>There is a view that a low OverallQual has a lower price tendency, and a house with a higher OverallQual Quality has a higher price tendency. Perform an analysis of the relationship between OverallQual and SalePrice.</p>
+								<pre><code>df %>% ggplot(aes(x=OverallQual,y=SalePrice)) + geom_point()
+cor.test(df$OverallQual,df$SalePrice)
+</code></pre>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image fit"><img src="images/project2image/3.jpg" alt="" /></span></div>
+											<div class="col-4"><span class="image fit"><img src="images/project2image/4.jpg" alt="" /></span></div>
+										</div>
+								</div>
+								<h3>Insight</h3>
+								<p><b>OverallQual</b> can be said to be a categorical variable which is described in numerical form 1-10, where 1 is very bad and 10 is very good. a high price has a high OverallQual. Based on the correlation, it can be seen that SalePrice and OverallQUall have a very strong correlation, namely 0.790 and it can be concluded that OverallQual greatly affects SalePrice from home.
+								</p>
+
+								<h2>Beware of False Correlation</h2>
+								<p>There is a tendency that new homes have a higher price. However, we should not be in a hurry to conclude that a new house must have a higher selling price, because if the new house that is built is not good, of course the price cannot be high either. What do you think makes a new home a higher value?</p>
+								<pre><code>df %>% ggplot(aes(x=YearBuilt,y=YearRemodAdd)) + geom_point()
+
+df %>% 
+  mutate(df, usia_rumah = YearRemodAdd-YearBuilt, .after ="SalePrice" ) %>% 
+  ggplot(aes(x=usia_rumah,y=SalePrice)) + geom_point()
+</code></pre>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image fit"><img src="images/project2image/5.jpg" alt="" /></span></div>
+											<div class="col-4"><span class="image fit"><img src="images/project2image/6.jpg" alt="" /></span></div>
+										</div>
+								</div>
+								<h3>Insight</h3>
+								<p>The thing that makes new homes have a higher value is when they do YearRemodadd with a short period of time with YearBuilt. Through visualization, it can be seen that houses that were carried out YearRemodadd and YearBuilt in the same year tend to have a higher sale price.
+								</p>
+
+								<h2>Haunted places(?)</h2>
+								<p>Pay attention to the following scatter plot</p>
+								<pre><code>df %>% ggplot(aes(x=GrLivArea,y=SalePrice)) + geom_point()
+</code></pre>
+								<div class="image fit"><img src="images/project2image/7.jpg" alt="" /></div>
+								<p>On the right, there are two houses, which have a very large GreenLivingArea, but the SalePrice is cheap. Lets analyze why the two houses are cheap.</p>
+								<pre><code>df %>% ggplot(aes(x=GrLivArea,y=SalePrice)) + 
+  geom_point()+
+  coord_cartesian(xlim=c(4500,6000)) #visualize house with GrLivArea >4500
+x<- filter(df, GrLivArea>4500) #filter house with GrLivArea diatas 4500
+</code></pre>
+								<div class="image fit"><img src="images/project2image/8.jpg" alt="" /></div>
+								<h3>Insight</h3>
+								<p>The two houses cheap robably because even though the house has a large GrLvArea area, the house is on a bad contour where its position is at a sharp turn and on an incline. houses with LandCountour type <b>'Bnk'</b> do not have a high selling value.
+								</p>
+
+								<h2>EDA for Top Month Sold</h2>
+								<pre><code>df %>% ggplot(aes(x=YearBuilt,y=YearRemodAdd)) + geom_point()
+
+df %>% 
+  mutate(df, usia_rumah = YearRemodAdd-YearBuilt, .after ="SalePrice" ) %>% 
+  ggplot(aes(x=usia_rumah,y=SalePrice)) + geom_point()
+</code></pre>
+								<div class="image fit"><img src="images/project2image/9.jpg" alt="" /></div>
+								<h3>Insight</h3>
+								<p><ul><li>The most sold homes are in June, July and May.</li>
+									<li>The least sold homes are in February, January and December.</li>
+									<li>It can be said that the house sells better in the middle of the year and the worst sales at the beginning and end of the year.</li>
+									<li>This can be caused because in the middle of the year a person's financial average can be said to be stable because there is no mid-year holiday or big day in that month.</li>
+									<li>While at the beginning of the year, it can be said that people spend a lot of time on holidays or leave because the beginning and end of the year are Christmas and New Year's holidays.</li>
+									<li>So that people tend to be reluctant to buy a house when they do a lot of spending, this is what causes the drop in home sales in those months.</li>
+									<li>To anticipate this, discounts can be done at the beginning of the year or the end of the year to attract people to buy houses at the end and beginning of the year.</li></ul></p>
+
+							</section>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+
+					</footer>
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
