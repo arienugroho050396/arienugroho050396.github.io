@@ -1,0 +1,176 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>EDA Wind Energy in Germany</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">Home</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">main page</a></li>
+							<li class="active"><a href="project1.html">EDA Wind Energy in Germany</a></li>
+							<li><a href="aboutme.html">About Me</a></li>
+							<li><a href="contactme.html">Contact</a></li>				
+						</ul>
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/in/mocharienugroho/" class="icon brands fa-linkedin"><span class="label">Facebook</span></a></li>
+							<li><a href="https://github.com/arienugroho050396" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+							<li><a href="https://medium.com/@arienugroho650" class="icon brands fa-medium"><span class="label">Medium</span></a></li>
+							<li><a href="https://www.instagram.com/moch_arie_n/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<span class="date">December 12, 2021</span>
+									<h1>Exploratory Data Analysis<br />
+									Wind Energy in Germany</h1>
+								</header>
+								<div class="image fit"><img src="images/project3cover.jpg" alt="" /></div>
+								<ul class="actions">
+										<li><a href="https://github.com/arienugroho050396/EDA-Wind-Energy-In-Germany" class="button">Repository</a></li>
+										<li><a href="https://www.kaggle.com/aymanlafaz/wind-energy-germany" class="button">Kaggle Datasheet</a></li>
+									</ul>
+								<p>Wind power in Germany is a growing industry. The installed capacity was 55.6 gigawatts (GW) at the end of 2017, with 5.2 GW from offshore installations. In 2019, a quarter of the country's total electricity was generated using wind power, compared to an estimated 9.3% in 2010. We found the datasheet that represent the temperature and wind energy production from 2017-2019, so in this article Arie will try to provide details about EDA and try to visualize the data obtained.</p>
+								<h2>Data Fields</h2>
+									<li><b>utc_timestamp</b> — Time in UTC.</li>
+									<li><b>wind_generation</b> — Daily wind production in MW.</li>
+									<li><b>wind_capacity</b> — Electrical capacity of wind in MW.</li>
+									<li><b>temperature</b> — Daily Temperature in degrees C.</li>
+								<p>
+								<h2>Import Package and Data</h2></p>
+								<p>Started with imports of some basic libraries that are needed throughout the case. This includes Pandas and Numpy for data handling and processing as well as Matplotlib and Seaborn for visualization.</p>
+								<pre><code>import matplotlib.pyplot as plt
+import numpy as np
+import seaborn as sns
+import os
+%matplotlib inline
+import plotly.graph_objects as go
+import folium
+import plotly.express as px
+import pandas as pd
+import re
+</code></pre>
+
+								<p>For this exercise, the data set (.csv format) is downloaded to a local folder, read into the Jupyter notebook and stored in a Pandas DataFrame.</p>
+								<pre><code>df = pd.read_csv("C:\My Files\Document\Coding\Datasheet\germany-wind-energy.csv")
+df.head()
+</code></pre>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project3image/1.jpg" width = "600" height = "150" alt="" /></span></div>
+										</div>
+								</div>
+								<p><h2>Initial EDA</h2></p>
+								<p>The first part of EDA the data frame is evaluated for structure, columns included and data types to get a general understanding for the data set. Get a summary on the data frame include data types, shape, and memory storage. there is 4 columns, 1094 rows and no missing value</p>
+								<div class="box alt">
+									<div class="row gtr-50 gtr-uniform">
+										<div class="col-4"><span class="image fit"><img src="images/project3image/2.jpg" height = "200"alt="" /></span></div>
+										<div class="col-4"><span class="image fit"><img src="images/project3image/3.jpg" alt="" /></span></div>
+									</div>
+								</div>								
+								<p>Get statistical information on numerical features.</p>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image fit"><img src="images/project3image/4.jpg" alt="" /></span></div>
+										</div>
+								</div>
+								<p>
+								<h2>Data Visualization</h2></p>
+								<p><h3>utc_timestamp with wind_generation_actual</h3></p>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project3image/5.png" width = "600" height = "300" alt="" /></span></div>
+										</div>
+								</div>
+								<h4>insight :</h4>
+								<p>
+									<li>The daily wind generation from 2017-2019 is stable on average every month.</li>
+									<li>High winds always occur in the winter season in December or January, and the highest wind generator is on 8 December 2018.</li>
+									<li>The less daily wind generation occurs during the summer season in July.</li>
+									<li>However, it was recorded that the daily wind generation occurred on September 22, 2017, which means the weather at that time was not normal.</li>
+								</p>
+								<p><h3>utc_timestamp with wind_capacity</h3></p>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project3image/6.png" width = "600" height = "300" alt="" /></span></div>
+										</div>
+								</div>
+								<h4>insight :</h4>
+								<p>
+									<li>Wind capacity has increased throughout 2017-2019.</li>
+									<li>The increase of wind capacity since january 2019 is not too significant.</li>
+								</p>
+
+								<p><h3>utc_timestamp with temperature</h3></p>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project3image/7.png" width = "600" height = "300" alt="" /></span></div>
+										</div>
+								</div>
+								<h4>insight :</h4>
+								<p>
+									<li>At winter season less temperature but summer season high temperature.</li>
+									<li>At winter season less temperature but summer season high temperature.</li>
+								</p>
+
+								<p><h3>Correlation</h3></p>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project3image/8.png" width = "500" height = "400" alt="" /></span></div>
+										</div>
+								</div>
+								<h4>insight :</h4>
+								<p>
+									<li>Between each of the data variables there is no high correlation, but temperature and wind generation are negatively correlated.</li>
+								</p>
+
+							</section>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+
+					</footer>
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
