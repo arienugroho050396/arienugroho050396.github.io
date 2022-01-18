@@ -1,0 +1,423 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Red Wine Quality</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">Home</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">main page</a></li>
+							<li class="active"><a href="project1.html">Red Wine Quality</a></li>
+							<li><a href="aboutme.html">About Me</a></li>
+							<li><a href="contactme.html">Contact</a></li>				
+						</ul>
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/in/mocharienugroho/" class="icon brands fa-linkedin"><span class="label">Facebook</span></a></li>
+							<li><a href="https://github.com/arienugroho050396" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+							<li><a href="https://medium.com/@arienugroho650" class="icon brands fa-medium"><span class="label">Medium</span></a></li>
+							<li><a href="https://www.instagram.com/moch_arie_n/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<span class="date">January 18, 2022</span>
+									<h1>Red Wine Quality<br />
+									</h1>
+								</header>
+								<div class="image fit"><img src="images/project4cover.jpg" alt="" /></div>
+								<ul class="actions">
+										<li><a href="https://github.com/arienugroho050396/Red-Wine-Quality" class="button">Repository</a></li>
+										<li><a href="https://www.kaggle.com/uciml/red-wine-quality-cortez-et-al-2009" class="button">Kaggle Datasheet</a></li>
+									</ul>
+								<p>Most wines are made with grapes, but they're not like the ones you find in the grocery store. Wine grapes (Latin name: Vitis vinifera) are smaller, sweeter, have thick skins, and contain seeds. According to wine folly, over 1,300 wine grape varieties are used in commercial production, but only about 100 of these varieties make up 75% of the world's vineyards. Wine is an alcoholic drink that is made up of fermented grapes. If you have come across wine, you will notice that wine also has its types. There are red wines, white wines. This was because of different varieties of grapes.
+								</p>
+								<p>We can use machine learning in production process to ensure that every wine bottle has the highest quality. This will reduce the cost with regard to each wine bottle as less human labor is required for monitoring quality. Therefore, this analysis is aimed at predicting wine quality, given some important attributes in wine.</p>
+								<h2>Data Fields</h2>
+								<p>
+									<li><b>Fixed acidity</b> — The amount of tartaric acid in wine (g/dm3).	</li>
+									<li><b>Volatile acidity</b> — The amount of acetic acid in wine (g/dm3).</li>
+									<li><b>Citric acid</b> — The amount of citric acid in wine(g/dm3).</li>
+									<li><b>Residual sugar</b> — The amount of sugar remaining after fermentation stops (g/dm3).</li>
+									<li><b>Chlorides</b> — The amount of salt in the wine (g/dm3).</li>
+									<li><b>Free Sulfur Dioxide</b> — The amount of sulfur dioxide (SO2) in free form (g/dm3).</li>
+									<li><b>Total sulfur dioxide</b> — The total amount of SO2 in the wine (g/dm3).</li>
+									<li><b>Density</b> — The density of water.</li>
+									<li><b>pH value</b> — pH scale value.</li>
+									<li><b>Sulfites</b> — The amount of sulfites in the wine (g/dm3).</li>
+									<li><b>Alcohol</b> — The percent alcohol content of the wine.</li>
+									<li><b>Quality</b> — The quality of the wine, which is ranged from 1 to 10.</li>
+								</p>
+								<p>
+								<h2>Import Package and Data</h2></p>
+								<p>Started with imports of some basic libraries that are needed throughout the case. This includes Pandas and Numpy for data handling and processing as well as Matplotlib and Seaborn for visualization.</p>
+								<pre><code>import pandas as pd
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+import warnings
+warnings.filterwarnings("ignore")
+</code></pre>
+
+								<p>For this exercise, the data set (.csv format) is downloaded to a local folder, read into the Jupyter notebook and stored in a Pandas DataFrame.</p>
+								<pre><code>import pandas as pd
+df = pd.read_csv('C:\My Files\Document\Coding\Datasheet\winequality-red.csv')
+df.head()
+</code></pre>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project4image/1.jpg" width="900" alt="" /></span></div>
+										</div>
+								</div>
+								<p><h2>Exploratory Data Analysis</h2></p>
+								<p>The first part of EDA the data frame is evaluated for structure, columns included and data types to get a general understanding for the data set. Get a summary on the data frame include data types, shape, and memory storage.</p>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image fit"><img src="images/project4image/2.jpg" alt="" /></span></div>
+										</div>
+								</div>
+								<p> Lets check the missing value from the predictor, and there are no missing values and all the predictor variables are numerical.
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project4image/3.jpg" width = "200" height= "200" alt="" /></span></div>
+										</div>
+								</div>								
+								<p>Get statistical information on numerical features.</p>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project4image/4.jpg" width = "900" alt="" /></span></div>
+										</div>
+								</div>
+								
+								<h2>Exploratory Data Analysis</h2>
+								<h3>Acids</h3>
+								<p>Acids constitute a significant wine constituent, and they contribute significantly to its taste. In fact, acids impact the sourness or tartness, which is a fundamental feature of the wine. The most abundant of these acids arise in the grapes themselves and carry over into the wine. However, some acids arise as a result of the fermentation process. (Nierman, 2004)</p>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="gallery"><img src="images/project4image/5.jpg" width = "900" height= "300"  alt="" /></span></div>
+										</div>
+								</div>
+								<p>The predominantly fixed acids found in wines are tartaric, malic, citric, and succinic. The intensity of each acid can vary but according to this analysis, we can see that high-quality wines have somewhat higher fixed acidity levels. In a high quality wine the fixed acidic levels higher than 8g/L but less than 13g/L..</p>
+								
+								<h3>Volatile Acidity</h3>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="gallery"><img src="images/project4image/6.jpg" width = "900" height= "300"  alt="" /></span></div>
+										</div>
+								</div>
+								<p>Volatile acidity (VA) is a measure of the wine's volatile (or gaseous) acids. The primary volatile acid in wine is acetic acid, which is also the primary acid associated with the smell and taste of vinegar.Therefore, this can be referred to as an unpleasant characteristic of wine. VA can be caused by several acids, but the primary source is Acetic Acid and is the result of bacteriological infection through oxidation during winemaking. In quantities of 0.2 to 0.4 g/L, volatile acidity does not affect a wine's quality. It is clear from the analysis that extreme volatile acidity levels can be pursued as a characteristic that affects the quality of the wine.This is because, extreme volatile acidity signifies a serious faultin wine, and can be referred to as volatile. But VA can give the wine a sharp, vinegary tactile sensation as well. A high quality wine has VA level at an average between 0.3-0.5g/L.</p>
+								
+								<h3>Citric Acids</h3>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="gallery"><img src="images/project4image/7.jpg" width = "900" height= "300"  alt="" /></span></div>
+										</div>
+								</div>
+								<p>Citric acid is one of the less commonly found acids in wine. This acid is a weak organic compound that is commonly found in large quantities in citrus fruits like oranges and limes. Even though the quantity of citric acid found in grapes is small, it still makes up 5% of the total acid content in the fruit. Citric acid is most used as an acid supplement during the fermentation process to help winemakers boost the acidity of their wine especially grapes grown in warmer climates.
+								Adding citric acid will give the wine “freshness”. Therefore, In a high quality wine bottle the citric acid level would be at an average level between 0.3-0.6 g/L.</p>
+
+								<h3>pH Level</h3>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="gallery"><img src="images/project4image/8.jpg" width = "900" height= "300"  alt="" /></span></div>
+										</div>
+								</div>
+								<p>The below depiction and the analysis of each acid constituent indicated that high acidity is a unique feature of highquality wine. On top of that, high acidity allows the wine to improve with age. Therefore, considering the above facts,a pH value of 3.20-3.30 would be ideal for high quality wine. This will in turn allow the wine to have a crisper and tart taste than a low acidic wine which has a smoother rounder feeling.</p>
+
+								<h3>Residual sugar</h3>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="gallery"><img src="images/project4image/9.jpg" width = "900" height= "300"  alt="" /></span></div>
+										</div>
+								</div>
+								<p>Residual sugar refers to the sugars left unfermented in a finished wine. The amount of residual sugar affects a wine’s sweetness and, in the EU, the RS level is linked to specific labeling terms. For example, a wine containing more than 45 g/L is a ‘sweet wine’. At a certain level, residual sugar may help a sharp, acidic wine to taste mellower and also make a plain wine more flavorsome. Some everyday wines are made by simply adding sweeteners, such as preserved grape juice to dry wines before bottling to make them more palatable. However, residual sugar can also be a dangerous enemy to the stability of a still wine because it may trigger re-fermentation in the bottle. Microbes may feed on the sugars left in the wine and generate unwanted flavors and gasses.
+								From the analysis, we can see that very low-quality wines have a high amount of residual sugar. Even though residual sugars do not have a drastic effect on the quality of wine it is better to have a level below 2.5g/L.</p>
+
+								<h3>Chlorides</h3>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="gallery"><img src="images/project4image/10.jpg" width = "900" height= "300"  alt="" /></span></div>
+										</div>
+								</div>
+								<p>Chlorides are the amount of salt in the wine. They are used to help adjust acidity and taste. The study shows that chlorides and quality appear to have a negative relationship with red wine. This means high-quality wine contains less salt. Taking this fact from the analysis into consideration we can say that the chloride level between 75 mg/L to 80 mg/L is good for high quality wine.</p>
+
+								<h3>Sulfites</h3>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="gallery"><img src="images/project4image/11.jpg" width = "900" height= "300"  alt="" /></span></div>
+										</div>
+								</div>
+								<p>Sulfites are a group of chemical compounds found naturally in a variety of foods and beverages. They are artificially added as a preservative. Winemakers often use sulfites to help to minimize oxidation in wine and maintain its freshness. This in turn improves its taste and appearance.
+								Medical research shows that a small percentage of the population is sensitive to sulfites and may experience side effects like headaches, hives, swelling, stomach pain, and diarrhea. Also, for those with asthma sulfites may cause irritation in the respiratory tract (Healthline, 2019). However, wine usually contains a range from 5 mg/L to 200 mg/L sulfites and a well-made dry red wine typically has about 50 mg/L sulfites. From the analysis, it’s clear that high-quality wines maintain a level of 50 mg/L of sulfites.</p>
+
+								<h3>Sulfur Dioxides</h3>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="gallery"><img src="images/project4image/12.jpg" width = "900" height= "300"  alt="" /></span></div>
+										</div>
+								</div>
+								<p>Apart from sulfites, in winemaking, sulfur dioxide is added to control the process and serves many useful functions. For example, it acts as an enzyme inhibitor in musts to prevent the juice from browning. As a microbiological control agent, sulfur dioxide is added to the winemaking process to prevent oxidation in the finished product. Sulfur dioxide can be found in wine in its free forms, SO2 (gas) and bisulfite ion (HSO3–), or bound to compounds that incorporate a carbonyl group, such as acetaldehyde. Free forms of SO2 are pH and temperature-dependent, and because of the acidic nature of wines, SO2 is usually present and measured as bisulfate ions (HSO3–). Results are reported as SO2. The European Union established a maximum permitted level of total SO2 in wine varying from 150 to 500 mg/L, which is dependent upon the sugar level of the product. This analysis has shown that the total sulfur dioxide has a maximum of 289 mg/L in high quality wines. Therefore, a total SO2 level within the range of 275-290 mg/L assures high quality.</p>
+
+								<h3>Density</h3>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="gallery"><img src="images/project4image/13.jpg" width = "900" height= "300"  alt="" /></span></div>
+										</div>
+								</div>
+								<p>The density of the wine is inversely proportional to the quality. The primary reason can be stated as the addition of sugar, alcohol, and other ingredients to enhance the quality of the wine. These supplementary ingredients can cause the density of the liquid to drop. Therefore, taking the above finding into consideration the mean density of the wine at around 0.996435 g/cc will ensure a highquality product.</p>
+
+								<h3>Alcohol Level</h3>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="gallery"><img src="images/project4image/14.jpg" width = "900" height= "300"  alt="" /></span></div>
+										</div>
+								</div>
+								<p>The wine flavor structure comprises a relationship between alcohol, acids, sugar, and tannin. For the best quality, all the above aspects need to have similar intensity. A wine with a higher alcohol content will have a fuller, richer body, while a lower-level alcohol wine will taste lighter and more delicate on the palate(Masterclass Staff, 2020). The depictions indicate that people appreciate a relatively high alcohol level in their wine ranging from an average of 10.4% to the upper quartile of 13.9%.Therefore, considering factual information and findings the alcohol level should be at 10.4% to 13.4% range.</p>								
+
+								<p><h3>Correlation analysis</h3></p>
+								<div class="image"><img src="images/project4image/15.jpg" width = "500" height= "400"alt="" /></div>
+								<p> From the correaltion plot we can see there are some highly correlated variables.</p>
+								<h2>Exploratory Data Analysis Conclusion</h2>
+								<p>All features have shown an effect on the quality of the wine. When the correlation of each variable is considered, we can see that some features are correlated to each other. This is because features such as fixed acid, citric acids are part of features like pH value. The major findings are that acidity has had a major effect in determining the quality of the wine. Also, consumers have stated that a high-quality wine should not contain an excess of residual sugars. This means a very sweet wine is not a feature of high-quality wine. The increase in alcohol level has also been viewed as a feature of good wine but, it should not increase to an amount where the wine will be categorized as hard liquor.</p>
+								
+								<h2>Machine Learning</h2>
+								<p>From the EDA, we have identified that some predictors are correlated. The predictors are on a ratio scale. The dependent variable is discrete with values stretching from 3 to 8. It is better to recode the response variable into few categories. It can be done as a binary classification as well as a multi class classification. Therefore, a tree-based approach will be the best option to tackle this problem and to create a classification model with high accuracy.</p>
+								<p>Therefore, a tree-based approach will be the best option to tackle this problem and to create a classification model with high accuracy. The objectives of this project is to experiment with different classification methods to see which yields the highest accuracy and to determine the effect of oversampling for classification accuracy.</p>
+								<pre><code>df['quality'].unique()
+</code></pre>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image fit"><img src="images/project4image/16.jpg" width = "100" height= "50" alt="" /></span></div>
+										</div>
+								</div>
+								<p>recoding the response variable to two categories as high quality and low quality.</p>
+								<pre><code>new=[]
+for row in df['quality']:
+    if (row<=5):
+        val=1
+    else:
+        val=2
+    new.append(val)
+</code></pre>
+								<pre><code>df['newquality']=new
+</code></pre>
+								<pre><code>plt.figure(figsize = (4,3))
+sns.countplot(df['newquality'],palette='rocket')
+plt.show()
+</code></pre>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project4image/17.jpg" width = "300" height= "250" alt="" /></span></div>
+										</div>
+								</div>
+								<p>here we can see that dataet is not balanced. to overcome this problem we can use oversampling or undersampling. since low class have small number of observations here I am using oversampling techinque. in this analysis we are looking for prediction accuracy hence those correlations are neglected and also from the background study of red wines you can see that all the variables in this dataset are really important for final quality prediction.</p>
+								<pre><code>X=df.drop(['quality','newquality'],axis=1)
+y=df['newquality']
+</code></pre>
+								<p>dividing the dataset into train and test sets</p>
+								<pre><code>from sklearn.model_selection import train_test_split
+x_train1,x_test,y_train1,y_test=train_test_split(X,y,test_size=0.20,random_state=1234)
+</code></pre>
+								<h3>Resampling with Oversampling Technique</h3>
+								<pre><code>from imblearn.over_sampling import SMOTE
+
+oversample = SMOTE()
+x_train, y_train = oversample.fit_resample(x_train1, y_train1)
+
+plt.figure(figsize = (4,3))
+sns.countplot(y_train,palette='rocket')
+plt.show()
+</code></pre>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project4image/18.jpg" width = "300" height= "250" alt="" /></span></div>
+										</div>
+								</div>
+								<h4>Logistic Regression</h4>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image fit"><img src="images/project4image/19.jpg" width = "200" height= "200" alt="" /></span></div>
+										</div>
+								</div>
+								<h4>linear discriminant analysis</h4>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image fit"><img src="images/project4image/20.jpg" width = "200" height= "200" alt="" /></span></div>
+										</div>
+								</div>
+								<h4>decision tree classifier</h4>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image fit"><img src="images/project4image/21.jpg" width = "200" height= "200" alt="" /></span></div>
+										</div>
+								</div>
+								<h4>random forest classifier</h4>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image fit"><img src="images/project4image/22.jpg" width = "200" height= "200" alt="" /></span></div>
+										</div>
+								</div>
+								<h4>bagging classifier</h4>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image fit"><img src="images/project4image/23.jpg" width = "200" height= "200" alt="" /></span></div>
+										</div>
+								</div>
+								<h4>gradient boost classifier</h4>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image fit"><img src="images/project4image/24.jpg" width = "200" height= "200" alt="" /></span></div>
+										</div>
+								</div>
+								<h4>adaboost classifier</h4>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image fit"><img src="images/project4image/25.jpg" width = "200" height= "200" alt="" /></span></div>
+										</div>
+								</div>
+								<h4>extreme gradient boost classifier</h4>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image fit"><img src="images/project4image/26.jpg" width = "200" height= "200" alt="" /></span></div>
+										</div>
+								</div>
+								<h4>extra tree classifier</h4>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image fit"><img src="images/project4image/27.jpg" width = "200" height= "200" alt="" /></span></div>
+										</div>
+								</div>
+								<h4>voting classifer</h4>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image fit"><img src="images/project4image/28.jpg" width = "200" height= "200" alt="" /></span></div>
+										</div>
+								</div>
+								<h4>stacking classifier</h4>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image fit"><img src="images/project4image/29.jpg" width = "200" height= "200" alt="" /></span></div>
+										</div>
+								</div>
+								<p>stacking classifier gives the highest accuracy which is 85.31%. precision and recall values are also high for this model. hence with SMOTE resampling the best model is stacking classifier with random forest classifier and extra tree classifier.</p>
+								<h3>Model Without resampling</h3>
+								<p> let's see accuracy values without using smote resampling technique</p>
+								<h4>Logistic Regression</h4>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image fit"><img src="images/project4image/30.jpg" width = "200" height= "200" alt="" /></span></div>
+										</div>
+								</div>
+								<h4>linear discriminant analysis</h4>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image fit"><img src="images/project4image/31.jpg" width = "200" height= "200" alt="" /></span></div>
+										</div>
+								</div>
+								<h4>decision tree classifier</h4>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image fit"><img src="images/project4image/32.jpg" width = "200" height= "200" alt="" /></span></div>
+										</div>
+								</div>
+								<h4>random forest classifier</h4>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image fit"><img src="images/project4image/33.jpg" width = "200" height= "200" alt="" /></span></div>
+										</div>
+								</div>
+								<h4>bagging classifier</h4>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image fit"><img src="images/project4image/34.jpg" width = "200" height= "200" alt="" /></span></div>
+										</div>
+								</div>
+								<h4>gradient boost classifier</h4>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image fit"><img src="images/project4image/35.jpg" width = "200" height= "200" alt="" /></span></div>
+										</div>
+								</div>
+								<h4>adaboost classifier</h4>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image fit"><img src="images/project4image/36.jpg" width = "200" height= "200" alt="" /></span></div>
+										</div>
+								</div>
+								<h4>extreme gradient boost classifier</h4>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image fit"><img src="images/project4image/37.jpg" width = "200" height= "200" alt="" /></span></div>
+										</div>
+								</div>
+								<h4>extra tree classifier</h4>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image fit"><img src="images/project4image/38.jpg" width = "200" height= "200" alt="" /></span></div>
+										</div>
+								</div>
+								<h4>voting classifer</h4>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image fit"><img src="images/project4image/39.jpg" width = "200" height= "200" alt="" /></span></div>
+										</div>
+								</div>
+								<h4>stacking classifier</h4>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image fit"><img src="images/project4image/40.jpg" width = "200" height= "200" alt="" /></span></div>
+										</div>
+								</div>
+								<p>from the above models stacking classifier and random forest classifier have higher perfromance than other models. stacking classifier is the one with highest accuracy 85.94%. We can see that without resampling there is a slight increase in accuracy. hence the model without SMOTE resampling is the best one. The accuracy can be increased by tuning hyper parameters of these models using scikit learn randomized grid search.</p>
+
+							</section>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+
+					</footer>
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
