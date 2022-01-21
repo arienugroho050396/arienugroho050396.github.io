@@ -174,13 +174,13 @@ ggplot(df, aes(SalePrice)) +
 </code></pre>
 								<div class="box alt">
 										<div class="row gtr-50 gtr-uniform">
-											<div class="col-4"><span class="image fit"><img src="images/project2image/1.jpg" alt="" /></span></div>
+											<div class="col-4"><span class="image fit"><img src="images/project2image/1.JPG" alt="" /></span></div>
 										</div>
 								</div>
 								<p>We can look visualize histogram with binwidth 100000.</p>
 								<div class="box alt">
 										<div class="row gtr-50 gtr-uniform">
-											<div class="col-4"><span class="image fit"><img src="images/project2image/2.jpg" alt="" /></span></div>
+											<div class="col-4"><span class="image fit"><img src="images/project2image/2.JPG" alt="" /></span></div>
 										</div>
 								</div>
 								<p>
@@ -250,8 +250,8 @@ cor.test(df$OverallQual,df$SalePrice)
 </code></pre>
 								<div class="box alt">
 										<div class="row gtr-50 gtr-uniform">
-											<div class="col-4"><span class="image fit"><img src="images/project2image/3.jpg" alt="" /></span></div>
-											<div class="col-4"><span class="image fit"><img src="images/project2image/4.jpg" alt="" /></span></div>
+											<div class="col-4"><span class="image fit"><img src="images/project2image/3.JPG" alt="" /></span></div>
+											<div class="col-4"><span class="image fit"><img src="images/project2image/4.JPG" alt="" /></span></div>
 										</div>
 								</div>
 								<h3>Insight</h3>
@@ -268,8 +268,8 @@ df %>%
 </code></pre>
 								<div class="box alt">
 										<div class="row gtr-50 gtr-uniform">
-											<div class="col-4"><span class="image fit"><img src="images/project2image/5.jpg" alt="" /></span></div>
-											<div class="col-4"><span class="image fit"><img src="images/project2image/6.jpg" alt="" /></span></div>
+											<div class="col-4"><span class="image fit"><img src="images/project2image/5.JPG" alt="" /></span></div>
+											<div class="col-4"><span class="image fit"><img src="images/project2image/6.JPG" alt="" /></span></div>
 										</div>
 								</div>
 								<h3>Insight</h3>
@@ -280,14 +280,14 @@ df %>%
 								<p>Pay attention to the following scatter plot</p>
 								<pre><code>df %>% ggplot(aes(x=GrLivArea,y=SalePrice)) + geom_point()
 </code></pre>
-								<div class="image fit"><img src="images/project2image/7.jpg" alt="" /></div>
+								<div class="image fit"><img src="images/project2image/7.JPG" alt="" /></div>
 								<p>On the right, there are two houses, which have a very large GreenLivingArea, but the SalePrice is cheap. Lets analyze why the two houses are cheap.</p>
 								<pre><code>df %>% ggplot(aes(x=GrLivArea,y=SalePrice)) + 
   geom_point()+
   coord_cartesian(xlim=c(4500,6000)) #visualize house with GrLivArea >4500
 x<- filter(df, GrLivArea>4500) #filter house with GrLivArea diatas 4500
 </code></pre>
-								<div class="image fit"><img src="images/project2image/8.jpg" alt="" /></div>
+								<div class="image fit"><img src="images/project2image/8.JPG" alt="" /></div>
 								<h3>Insight</h3>
 								<p>The two houses cheap robably because even though the house has a large GrLvArea area, the house is on a bad contour where its position is at a sharp turn and on an incline. houses with LandCountour type <b>'Bnk'</b> do not have a high selling value.
 								</p>
@@ -299,7 +299,7 @@ df %>%
   mutate(df, usia_rumah = YearRemodAdd-YearBuilt, .after ="SalePrice" ) %>% 
   ggplot(aes(x=usia_rumah,y=SalePrice)) + geom_point()
 </code></pre>
-								<div class="image fit"><img src="images/project2image/9.jpg" alt="" /></div>
+								<div class="image fit"><img src="images/project2image/9.JPG" alt="" /></div>
 								<h3>Insight</h3>
 								<p><ul><li>The most sold homes are in June, July and May.</li>
 									<li>The least sold homes are in February, January and December.</li>
