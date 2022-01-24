@@ -83,7 +83,7 @@ if not sys.warnoptions:
 df.head()</code></pre>
 								<div class="box alt">
 										<div class="row gtr-50 gtr-uniform">
-											<div class="col-4"><span class="image"><img src="images/project5image/1.jpg" height="200" width="600" alt="" /></span></div>
+											<div class="col-4"><span class="image"><img src="images/project5image/1.JPG" height="200" width="600" alt="" /></span></div>
 										</div>
 								</div>
 								<p><h2>Exploratory Data Analysis</h2></p>
@@ -93,19 +93,19 @@ df.head()</code></pre>
 								<p>The first part of EDA the data frame is evaluated for structure, columns included and data types to get a general understanding for the data set. Get a summary on the data frame include data types, shape, and memory storage.</p>
 								<div class="box alt">
 										<div class="row gtr-50 gtr-uniform">
-											<div class="col-4"><span class="image"><img src="images/project5image/2.jpg" height="200" width="400" alt="" /></span></div>
+											<div class="col-4"><span class="image"><img src="images/project5image/2.JPG" height="200" width="400" alt="" /></span></div>
 										</div>
 								</div>
 								<p>Lets check the missing value from the predictor, and there are no missing values and all the predictor variables are numerical.
 								<div class="box alt">
 										<div class="row gtr-50 gtr-uniform">
-											<div class="col-4"><span class="image"><img src="images/project5image/3.jpg" width = "300" height= "150" alt="" /></span></div>
+											<div class="col-4"><span class="image"><img src="images/project5image/3.JPG" width = "300" height= "150" alt="" /></span></div>
 										</div>
 								</div>
 								<p>Get statistical information on numerical features.</p>
 								<div class="box alt">
 										<div class="row gtr-50 gtr-uniform">
-											<div class="col-4"><span class="image"><img src="images/project5image/4.jpg" height="250" width="500" alt="" /></span></div>
+											<div class="col-4"><span class="image"><img src="images/project5image/4.JPG" height="250" width="500" alt="" /></span></div>
 										</div>
 								</div>
 								<p>We saw multiple values of data with the .describe( ) method. What caught my attention here was the height of the standard deviations. Because in the column whose average is 50, about half of it, that is 25 standard deviations, there is also the same situation in the annual income. The Age column also has a standard deviation of about 33% compared to the mean. Lets look the correlation:</p>
@@ -117,7 +117,7 @@ df.head()</code></pre>
 								<p>From the picture above, it can be seen that the older customers have less income and therefore spend less money. Lets find the distribution of Spending Score, Age, and Annual Income.</p>
 								<div class="box alt">
 										<div class="row gtr-50 gtr-uniform">
-											<div class="col-4"><span class="image"><img src="images/project5image/6.png" height="400" width="1100" alt="" /></span></div>
+											<div class="col-4"><span class="image"><img src="images/project5image/6.png" height="300" width="800" alt="" /></span></div>
 										</div>
 								</div>
 								<p>The distributions are generally similar to the normal distribution, with only a few standard deviations. The 'more normal' distribution among the distributions is the 'Spending Score'. That's good because it's our target column.</p>
@@ -148,7 +148,7 @@ print('\033[1m' + '\033[93m' + f'Females Spending Score: {spending_score_female}
 								<p>We found that Males spending score = <b>4269</b> and Females spending score = <b>5771</b>. Lets try to understand the relationship between gender and spending score.</p>
 								<div class="box alt">
 										<div class="row gtr-50 gtr-uniform">
-											<div class="col-4"><span class="image"><img src="images/project5image/7.png" height="400" width="1100" alt="" /></span></div>
+											<div class="col-4"><span class="image"><img src="images/project5image/7.png" height="300" width="800" alt="" /></span></div>
 										</div>
 								</div>
 								<p>From the picture above, we can understand that There is no significant difference in the mean spending scores of males and females. Since the mean spending scores are very close to each other, the difference between the total spending scores is the difference between the number of male and female customers, but this difference is not serious. Considering all this, it would be meaningless to choose a gender-based target audience.
@@ -168,7 +168,7 @@ print('\033[1m' + '\033[93m' + f'Females Spending Score: {spending_score_female}
 								<p>One of the two regions shown can be selected as the target audience. Even though the number of people whose annual income is between (40-60)k$ is higher (we understand this from the number of data points), the number of that audience is higher but the spending score is low, so if we make shopping attractive for them by choosing the target audience from the two regions above, we will see more profit can be made.</p>
 								<h2>Clustering</h2>
 								<h3>Clustering (4 Variables)</h3>
-								Since we will be doing clustering with 4 variables, I will reduce the size, because after the clustering, I may have trouble in 4D visualization while visualizing. I will do the dimension reduction with PCA, PCA works like this: for example we have a dataset with 4 columns, we want to make it as many columns as we want, I will reduce it to 2 columns.
+								Since we will be doing clustering with 4 variables, I will reduce the size, because after the clustering, I may have trouble in 3D visualization while visualizing. I will do the dimension reduction with PCA, PCA works like this: for example we have a dataset with 4 columns, we want to make it as many columns as we want, I will reduce it to 2 columns.
 								<pre><code>x = df.iloc[:,0:].values 
 print("\033[1;31m"  + f'X data before PCA:\n {x[0:5]}')
 
@@ -186,7 +186,7 @@ X_2D = pca.fit_transform(X)
 print("\033[0;32m" + f'\nX data after PCA:\n {X_2D[0:5,:]}')</code></pre>
 								<div class="box alt">
 										<div class="row gtr-50 gtr-uniform">
-											<div class="col-4"><span class="image"><img src="images/project5image/10.jpg" height="300" width="300" alt="" /></span></div>
+											<div class="col-4"><span class="image"><img src="images/project5image/10.JPG" height="300" width="300" alt="" /></span></div>
 										</div>
 								</div>
 								<p>As you can see, X data, which we defined as 4 dimensional (red part), has now been reduced to 2 dimensions (green part). After that we need to find optimum number of clusters using Elbow Method.</p>
