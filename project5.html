@@ -1,0 +1,284 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Mall Customer Segmentation</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">Home</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">main page</a></li>
+							<li class="active"><a href="project1.html">Mall Customer Segmentation</a></li>
+							<li><a href="aboutme.html">About Me</a></li>
+							<li><a href="contactme.html">Contact</a></li>				
+						</ul>
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/in/mocharienugroho/" class="icon brands fa-linkedin"><span class="label">Facebook</span></a></li>
+							<li><a href="https://github.com/arienugroho050396" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+							<li><a href="https://medium.com/@arienugroho650" class="icon brands fa-medium"><span class="label">Medium</span></a></li>
+							<li><a href="https://www.instagram.com/moch_arie_n/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<span class="date">January 24, 2021</span>
+									<h1 style="font-size:70px">Mall Customer Segmentation</h1>
+								</header>
+								<div class="image fit"><img src="images/project5cover.jpg" alt="" /></div>
+								<ul class="actions">
+										<li><a href="https://github.com/arienugroho050396/Mall-Customer-Segmentation-Unsupervised-ML" class="button">Repository</a></li>
+										<li><a href="https://www.kaggle.com/vjchoudhary7/customer-segmentation-tutorial-in-python" class="button">Kaggle Datasheet</a></li>
+									</ul>
+								<p>You own the mall and want to understand the customers like who can be easily converge (Target Customers) so that the sense can be given to marketing team and plan the strategy accordingly. By the end of this case study , you would be able to answer below questions.
+									<li>How to achieve customer segmentation using machine learning algorithm (KMeans Clustering) in Python in simplest way?</li>
+									<li>Who are your target customers with whom you can start marketing strategy (easy to converse)?</li> 
+									<li>How the marketing strategy works in real world?</li></p>
+								<h2>Data Understanding</h2>
+									<li><b>CustomerID</b> — Unique ID assigned to the customer</li>
+									<li><b>Gender</b> — Gender of the customer</li>
+									<li><b>Age</b> — Age of the customer</li>
+									<li><b>Annual Income (k$)</b> — Annual Income of the customee</li>
+									<li><b>Spending Score (1-100)</b> — Score assigned by the mall based on customer behavior and spending nature</li></p>
+								<h2>Import Package and Data</h2>
+								<p>Started with imports of some basic libraries that are needed throughout the case. This includes Pandas and Numpy for data handling and processing as well as Matplotlib and Seaborn for visualization.</p>
+								<pre><code>
+import pandas as pd 
+import numpy as np
+import matplotlib
+import matplotlib.pyplot as plt
+import plotly.express as px
+import seaborn as sns
+import sys
+import warnings
+
+if not sys.warnoptions:
+    warnings.simplefilter("ignore")
+</code></pre>
+
+								<p>For this exercise, the data set (.csv format) is downloaded to a local folder, read into the Jupyter notebook and stored in a Pandas DataFrame.</p>
+								<pre><code>df = pd.read_csv('C:\My Files\Document\Coding\Datasheet\Mall_Customers.csv')
+df.head()</code></pre>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project5image/1.jpg" height="200" width="600" alt="" /></span></div>
+										</div>
+								</div>
+								<p><h2>Exploratory Data Analysis</h2></p>
+								<p>I see an ID column here, I'll drop it right away because the ID is just a unique number that identifies each row, not a feature therefore ID column is meaningless in this analysis.</p>
+								<pre><code>df.drop('CustomerID', axis=1, inplace = True)
+df.head()</code></pre>
+								<p>The first part of EDA the data frame is evaluated for structure, columns included and data types to get a general understanding for the data set. Get a summary on the data frame include data types, shape, and memory storage.</p>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project5image/2.jpg" height="200" width="400" alt="" /></span></div>
+										</div>
+								</div>
+								<p>Lets check the missing value from the predictor, and there are no missing values and all the predictor variables are numerical.
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project5image/3.jpg" width = "300" height= "150" alt="" /></span></div>
+										</div>
+								</div>
+								<p>Get statistical information on numerical features.</p>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project5image/4.jpg" height="250" width="500" alt="" /></span></div>
+										</div>
+								</div>
+								<p>We saw multiple values of data with the .describe( ) method. What caught my attention here was the height of the standard deviations. Because in the column whose average is 50, about half of it, that is 25 standard deviations, there is also the same situation in the annual income. The Age column also has a standard deviation of about 33% compared to the mean. Lets look the correlation:</p>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project5image/5.png" height="500" width="600" alt="" /></span></div>
+										</div>
+								</div>
+								<p>From the picture above, it can be seen that the older customers have less income and therefore spend less money. Lets find the distribution of Spending Score, Age, and Annual Income.</p>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project5image/6.png" height="400" width="1100" alt="" /></span></div>
+										</div>
+								</div>
+								<p>The distributions are generally similar to the normal distribution, with only a few standard deviations. The 'more normal' distribution among the distributions is the 'Spending Score'. That's good because it's our target column.</p>
+								<p>We converted the 'Gender' column to numeric using the 'Label Encoder'. Male --> 1 , Female --> 0</p>
+								<pre><code># Before-After Label Encoder
+
+from sklearn.preprocessing import LabelEncoder
+
+print('\033[0;32m' + 'Before Label Encoder\n' + '\033[0m' + '\033[0;32m', df['Gender'])
+
+le = LabelEncoder()
+df['Gender'] = le.fit_transform(df.iloc[:,0])
+
+print('\033[0;31m' + '\n\nAfter Label Encoder\n' + '\033[0m' + '\033[0;31m', df['Gender'])</code></pre>
+								<p>Lets calculate how much to shop for which gender.
+								<pre><code>spending_score_male = 0
+spending_score_female = 0
+
+for i in range(len(df)):
+    if df['Gender'][i] == 1:
+        spending_score_male = spending_score_male + df['Spending Score (1-100)'][i]
+    if df['Gender'][i] == 0:
+        spending_score_female = spending_score_female + df['Spending Score (1-100)'][i]
+
+
+print('\033[1m' + '\033[93m' + f'Males Spending Score  : {spending_score_male}')
+print('\033[1m' + '\033[93m' + f'Females Spending Score: {spending_score_female}')</code></pre>
+								<p>We found that Males spending score = <b>4269</b> and Females spending score = <b>5771</b>. Lets try to understand the relationship between gender and spending score.</p>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project5image/7.png" height="400" width="1100" alt="" /></span></div>
+										</div>
+								</div>
+								<p>From the picture above, we can understand that There is no significant difference in the mean spending scores of males and females. Since the mean spending scores are very close to each other, the difference between the total spending scores is the difference between the number of male and female customers, but this difference is not serious. Considering all this, it would be meaningless to choose a gender-based target audience.
+								<p>Let's look at the relationship between Age and Spending score.
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project5image/8.png" height="500" width="600" alt="" /></span></div>
+										</div>
+								</div>
+								People between the ages of 20-40 have made more purchases, considering the inference we just made about women, we can make our target audience more specific.</p>
+								<p>Let's look at the relationship between Annual Income and Spending Score</p>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project5image/9.png" height="500" width="600" alt="" /></span></div>
+										</div>
+								</div>
+								<p>One of the two regions shown can be selected as the target audience. Even though the number of people whose annual income is between (40-60)k$ is higher (we understand this from the number of data points), the number of that audience is higher but the spending score is low, so if we make shopping attractive for them by choosing the target audience from the two regions above, we will see more profit can be made.</p>
+								<h2>Clustering</h2>
+								<h3>Clustering (4 Variables)</h3>
+								Since we will be doing clustering with 4 variables, I will reduce the size, because after the clustering, I may have trouble in 4D visualization while visualizing. I will do the dimension reduction with PCA, PCA works like this: for example we have a dataset with 4 columns, we want to make it as many columns as we want, I will reduce it to 2 columns.
+								<pre><code>x = df.iloc[:,0:].values 
+print("\033[1;31m"  + f'X data before PCA:\n {x[0:5]}')
+
+
+# standardization before PCA
+from sklearn.preprocessing import StandardScaler
+sc = StandardScaler()
+X = sc.fit_transform(x)
+
+
+# PCA
+from sklearn.decomposition import PCA
+pca = PCA(n_components = 2) 
+X_2D = pca.fit_transform(X)
+print("\033[0;32m" + f'\nX data after PCA:\n {X_2D[0:5,:]}')</code></pre>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project5image/10.jpg" height="300" width="300" alt="" /></span></div>
+										</div>
+								</div>
+								<p>As you can see, X data, which we defined as 4 dimensional (red part), has now been reduced to 2 dimensions (green part). After that we need to find optimum number of clusters using Elbow Method.</p>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project5image/11.png" height="500" width="600" alt="" /></span></div>
+										</div>
+								</div>
+								<p> We found '4' is optimum number of clusters. Because the most break in the chart is at that point. This is how we will select the next optimal n_clusters. And we can see the cluster visualization below with the centroid.
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project5image/12.png" height="500" width="800" alt="" /></span></div>
+										</div>
+								</div></p>
+								<h3>Clustering (Age & Annual Income & Spending Score)</h3>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project5image/13.png" height="500" width="600" alt="" /></span></div>
+										</div>
+								</div>
+								<p> We found '6' is optimum number of clusters. Because the most break in the chart is at that point. And we can see the cluster visualization below with the centroid.
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project5image/14.png" height="500" width="700" alt="" /></span></div>
+										</div>
+								</div></p>
+								<h3>Clustering (Age & Annual Income)</h3>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project5image/15.png" height="500" width="600" alt="" /></span></div>
+										</div>
+								</div>
+								<p> We found '2' is optimum number of clusters. Because the most break in the chart is at that point. And we can see the cluster visualization below with the centroid.
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project5image/16.png" height="500" width="800" alt="" /></span></div>
+										</div>
+								</div></p>
+								<h3>Clustering (Annual Income & Spending Score)</h3>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project5image/17.png" height="500" width="600" alt="" /></span></div>
+										</div>
+								</div>
+								<p> We found '5' is optimum number of clusters. Because the most break in the chart is at that point. And we can see the cluster visualization below with the centroid.
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project5image/18.png" height="500" width="800" alt="" /></span></div>
+										</div>
+								</div></p>
+								<h3>Clustering (Age & Spending Score)</h3>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project5image/19.png" height="500" width="600" alt="" /></span></div>
+										</div>
+								</div>
+								<p> We found '4' is optimum number of clusters. Because the most break in the chart is at that point. And we can see the cluster visualization below with the centroid.
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project5image/20.png" height="500" width="800" alt="" /></span></div>
+										</div>
+								</div></p>
+								<h2>Conclusion</h2>
+								<li>It seems very clear that there is no big difference between male and female customers, so a gender-based audience should not be chosen.</li>
+								<li>In addition, it seems that the audience between the ages of 20-40 spend more in this store compared to people in other age groups, making special campaigns for the audience between the ages of 20-40 can increase the profit of the supermarket.</li>
+								<li>This is not the optimal strategy, but it could be an alternative. Since the average spending scores of middle-income (40k-70k dollars) customers in this store are also at a medium level, it is difficult to increase their spending to higher levels because their income is not conducive to this, but by making campaigns to increase the number of these customers, the store can increase its profit by acquiring more middle-income customers.</li>
+								<li>I think the best strategy would be to target high-income customers. The reason is that some of the high-income customers spend high, while a significant portion of these customers spend low, there may be some things that low-spenders are not satisfied. Improvements to be made in service and quality can increase the spending of high-income customers who come to the store, but do not.</li>
+								<li>The distribution of the data was generally good, but the standard deviations were a little high and there was no significant positive correlation between the data, only a negative correlation between age and spending score that could be important, showing us that older people who choose this supermarket spend less money than people in other age groups.</li>
+							</section>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+
+					</footer>
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
