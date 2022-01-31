@@ -1,0 +1,245 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Pima Indians Diabetes</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">Home</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">main page</a></li>
+							<li class="active"><a href="project1.html">Pima Indians Diabetes</a></li>
+							<li><a href="aboutme.html">About Me</a></li>
+							<li><a href="contactme.html">Contact</a></li>				
+						</ul>
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/in/mocharienugroho/" class="icon brands fa-linkedin"><span class="label">Facebook</span></a></li>
+							<li><a href="https://github.com/arienugroho050396" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+							<li><a href="https://medium.com/@arienugroho650" class="icon brands fa-medium"><span class="label">Medium</span></a></li>
+							<li><a href="https://www.instagram.com/moch_arie_n/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<span class="date">January 31, 2022</span>
+									<h1>Pima Indians Diabetes<br />
+									</h1>
+								</header>
+								<div class="image fit"><img src="images/project6cover.jpg" alt="" /></div>
+								<ul class="actions">
+										<li><a href="https://github.com/arienugroho050396/Pima-Indians-Diabetes-Database" class="button">Repository</a></li>
+										<li><a href="https://www.kaggle.com/uciml/pima-indians-diabetes-database" class="button">Kaggle Dataset</a></li>
+									</ul>
+								<p>Diabetes is one of the deadliest diseases in the world. It is not only a disease but also creator of different kinds of diseases like heart attack, blindness etc. The normal identifying process is that patients need to visit a diagnostic center, consult their doctor, and sit tight for a day or more to get their reports.
+								</p>
+								<p>The dataset is originally from the National Institute of Diabetes and Digestive and Kidney Diseases. The objective of the dataset is to diagnostically predict whether or not a patient has diabetes, based on certain diagnostic measurements included in the dataset. Several constraints were placed on the selection of these instances from a larger database. In particular, all patients here are females at least 21 years old of Pima Indian heritage. The datasets consists of several medical predictor variables and one target variable, Outcome. Predictor variables includes the number of pregnancies the patient has had, their BMI, insulin level, age, and so on. We will build a machine learning model to accurately predict whether or not the patients in the dataset have diabetes or not?</p>
+								<h2>Data Fields</h2>
+								<p>
+									<li><b>Pregnancies</b> — Number of times pregnant</li>
+									<li><b>Glucose</b> — Plasma Glucose Concentration (mg/dl)</li>
+									<li><b>Blood Pressure</b> — Diastolic Blood Pressure(mmHg)</li>
+									<li><b>Skin Thickness</b> — A value used to estimate body fat. Normal Triceps SkinFold Thickness in women is 23mm. Higher thickness leads to obesity and chances of diabetes increases.</li>
+									<li><b>Insulin</b> — 2-Hour Serum Insulin (mu U/ml)</li>
+									<li><b>BMI</b> — Body Mass Index (weight in kg/ height in m2).</li>
+									<li><b>Diabetes Pedigree Function</b> — It provides information about diabetes history in relatives and genetic relationship of those relatives with patients. Higher Pedigree Function means patient is more likely to have diabetes.</li>
+									<li><b>Age</b> — Age (years).</li>
+									<li><b>Outcome</b> — Class Variable (0 or 1) where ‘0’ denotes patient is not having diabetes and ‘1’ denotes patient having diabetes.</li>
+								</p>
+								<p>
+								<h2>Import Package and Data</h2></p>
+								<p>Started with imports of some basic libraries that are needed throughout the case. This includes Pandas and Numpy for data handling and processing as well as Matplotlib and Seaborn for visualization.</p>
+								<pre><code>import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+%matplotlib inline
+
+import warnings
+warnings.filterwarnings('ignore')
+
+import missingno as msno
+</code></pre>
+
+								<p>For this exercise, the data set (.csv format) is downloaded to a local folder, read into the Jupyter notebook and stored in a Pandas DataFrame.</p>
+								<pre><code>df = pd.read_csv("C:\My Files\Document\Coding\Datasheet\diabetes.csv")
+df.head()
+</code></pre>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project6image/1.jpg" width="700" alt="" /></span></div>
+										</div>
+								</div>
+								<p>There are some values in Insulin, that cannot be zero. So, need to handle them by imputing.</p>
+								<h2>Descriptive Static of Data</h2></p>					
+								<p>Get statistical information on numerical features.</p>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image fit"><img src="images/project6image/2.jpg" alt="" /></span></div>
+										</div>
+								</div>		
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project6image/3.jpg" width = "900" alt="" /></span></div>
+										</div>
+								</div>
+								<p>There is a huge variation in mean, and we can see there's no missing values, but for some of the columns like Glucose , BP, Skin Thickness,BMI has 0 as min value, which is not possible, hence we can treat this as missingvalues and impute accordingly.</p>
+								<h2>Handle the Columns with value '0'</h2>
+								<p>Lets check the missing value from the predictor.</p>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project6image/4.jpg" width = "250" height= "200" alt="" /></span></div>
+										</div>
+								</div>									
+								<p>There is so many missing value from the predictor. We cannot drop these values, as our data is very small. So let's handle them by replace it with 0 and mean.</p>
+								<h2>Visualization of Target Variable</h2>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project6image/5.png" width = "400" height= "370" alt="" /></span></div>
+										</div>
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project6image/6.png" width = "400" height= "370" alt="" /></span></div>
+										</div>
+								</div>
+								<h2>Distribution of Other Feature</h2>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image fit"><img src="images/project6image/7.png" alt="" /></span></div>
+											<div class="col-4"><span class="image fit"><img src="images/project6image/8.png" alt="" /></span></div>
+											<div class="col-4"><span class="image fit"><img src="images/project6image/9.png" alt="" /></span></div>
+											<!-- Break -->
+											<div class="col-4"><span class="image fit"><img src="images/project6image/10.png" alt="" /></span></div>
+											<div class="col-4"><span class="image fit"><img src="images/project6image/11.png" alt="" /></span></div>
+											<div class="col-4"><span class="image fit"><img src="images/project6image/12.png" alt="" /></span></div>
+											<!-- Break -->
+											<div class="col-4"><span class="image fit"><img src="images/project6image/13.png" alt="" /></span></div>
+											<div class="col-4"><span class="image fit"><img src="images/project6image/14.png" alt="" /></span></div>
+										</div>
+								</div>
+								<h2>Correlation Matrix</h2>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project6image/15.png" width = "400" height= "400" alt="" /></span></div>
+										</div>
+								</div>
+								<h2>Pair Plot</h2>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project6image/16.png" width = "950" height= "700" alt="" /></span></div>
+										</div>
+								</div>
+								<h2>Machine Learning Model</h2>
+								<h3>Split the data into test & train</h3>
+								<p>The train-test split procedure is used to estimate the performance of machine learning algorithms when they are used to make predictions on data not used to train the model.</p>
+								<pre><code>dx = df.iloc[:, :-1].values
+y = df.iloc[:, -1].values
+
+from sklearn.model_selection import train_test_split
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size= 0.2, random_state= 0)
+
+print("Number transactions x_train dataset: ", x_train.shape)
+print("Number transactions y_train dataset: ", y_train.shape)
+print("Number transactions x_test dataset: ", x_test.shape)
+print("Number transactions y_test dataset: ", y_test.shape)
+</code></pre>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project6image/17.jpg" width = "400" height= "90" alt="" /></span></div>
+										</div>
+								</div>
+								<h3>Feature Scaling</h3>
+								<p>Feature Scaling is a technique to standardize the independent features present in the data in a fixed range. It is performed during the data pre-processing to handle highly varying magnitudes or values or units. If feature scaling is not done, then a machine learning algorithm tends to weigh greater values, higher and consider smaller values as the lower values, regardless of the unit of the values.</p>
+								<p><b>Standard Scaler:</b> It is a very effective technique which re-scales a feature value so that it has distribution with 0 mean value and variance equals to 1.</p>
+								<pre><code>dfrom sklearn.preprocessing import StandardScaler 
+sc = StandardScaler()
+x_train = sc.fit_transform(x_train)
+x_test = sc.transform(x_test)
+
+from sklearn.metrics import confusion_matrix,classification_report,roc_curve,accuracy_score,auc
+</code></pre>
+								<h3>SVM Model</h3>
+								<p>Support Vector Machine or SVM is one of the most popular Supervised Learning algorithms, which is used for Classification as well as Regression problems. However, primarily, it is used for Classification problems in Machine Learning. The goal of the SVM algorithm is to create the best line or decision boundary that can segregate n-dimensional space into classes so that we can easily put the new data point in the correct category in the future. This best decision boundary is called a hyperplane.</p>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project6image/18.jpg" width = "450" height= "150" alt="" /></span></div>
+										</div>
+								</div>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project6image/19.png" width = "350" height= "300" alt="" /></span></div>
+										</div>
+								</div>
+								<h3>Random Forest Model</h3>
+								<p>Random forest classifier creates a set of decision trees from randomly selected subset of training set. It then aggregates the votes from different decision trees to decide the final class of the test object. This works well because a single decision tree may be prone to a noise, but aggregate of many decision trees reduce the effect of noise giving more accurate results.</p>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project6image/20.jpg" width = "450" height= "150" alt="" /></span></div>
+										</div>
+								</div>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project6image/21.png" width = "350" height= "300" alt="" /></span></div>
+										</div>
+								</div>
+								<h3>KNN Model</h3>
+								<p>K-Nearest Neighbour is one of the simplest Machine Learning algorithms based on Supervised Learning technique. It can be used for Regression as well as for Classification but mostly it is used for the Classification problems. K-NN algorithm assumes the similarity between the new case/data and available cases and put the new case into the category that is most similar to the available categories.</p>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project6image/22.jpg" width = "450" height= "150" alt="" /></span></div>
+										</div>
+								</div>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project6image/23.png" width = "350" height= "300" alt="" /></span></div>
+										</div>
+								</div>
+
+							</section>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+
+					</footer>
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
