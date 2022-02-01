@@ -1,0 +1,465 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Customer Personality Analysis</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">Home</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">main page</a></li>
+							<li class="active"><a href="project1.html">Customer Personality Analysis</a></li>
+							<li><a href="aboutme.html">About Me</a></li>
+							<li><a href="contactme.html">Contact</a></li>				
+						</ul>
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/in/mocharienugroho/" class="icon brands fa-linkedin"><span class="label">Facebook</span></a></li>
+							<li><a href="https://github.com/arienugroho050396" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+							<li><a href="https://medium.com/@arienugroho650" class="icon brands fa-medium"><span class="label">Medium</span></a></li>
+							<li><a href="https://www.instagram.com/moch_arie_n/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<span class="date">February 02, 2022</span>
+									<h1>Customer Personality Analysis<br />
+									</h1>
+								</header>
+								<div class="image fit"><img src="images/project7cover.jpg" alt="" /></div>
+								<ul class="actions">
+										<li><a href="https://github.com/arienugroho050396/Customer-Personality-Analysis" class="button">Repository</a></li>
+										<li><a href="https://www.kaggle.com/imakash3011/customer-personality-analysis" class="button">Kaggle Dataset</a></li>
+									</ul>
+								<p>The most successful companies today are the one's who know their customers so well that they are able to anticipate their needs beforehand. This can better be achieved if we can segment the customers into different groups that reflect the similarities among the customers in each group. The goal of the segmentation is to foresee the needs of customers, get to know their interests, lifestyles, priorities and learn their spending habits so that to maximize the value of customers to the business. Customer segmentation has many advantages for the businesses which include:
+								<li><b>Price Optimization:</b> Understanding the customers and their financial status will help to pace up with price optimization.</li>
+								<li><b>Enhanced Competitiveness:</b> More the customer attention and more will be the revenue generated and this would in return enhances company competitiveness in the market. If the company can segment the market, it is well known to the customers and the company can come up with new products and optimize the existing products according to the changing preferences of the customers.</li>
+								<li><b>Acquisition and Retention:</b> A personalized connection with the customers helps a company to win satisfied customers. Better segmentation of the customers will lead to better relationships with the prospective customers. About 75% of satisfied customers are more likely to stay with a company.</li>
+								<li><b>Increased Revenues:</b> By fine tuning the marketing strategies will help generate more revenues because users will more likely to purchase when they are delivered exactly what they need. Personalized and segmented Emails increase the liklihood that more Emails will be opened. Infact the more Emails are opened, the more sales will be made. Successful marketing not only require knowledge about who your customers are but also where exactly they are in the buying process and customer segmentation based on such information ensure that the marketing campaigns are truly effective.</li>
+								</p>
+								<p>For the given Dataset, I will perform the exploratory data analysis with the help of customer segmentation. Customer segmentation will be carried out with the help of K-Means alogorithm. At the end of analysis I would like to answer some questions by gaining some insights from the data, which are as follows:
+									<li><b>What are the statistical characteristics of the customers?</b></li>
+									<li><b>What are the spending habits of the customers?</b></li>
+									<li><b>Are there some products which need more marketing?</b></li>
+									<li><b>How the marketing can be made effective?</b></li>
+								</p>
+								<h2>Data Fields</h2>
+								<h3>People</h3>
+								<p>
+									<li><b>ID</b> — Customer's unique identifier</li>
+									<li><b>Year_Birth</b> — Customer's birth year.</li>
+									<li><b>Education</b> — Customer's education level.</li>
+									<li><b>Marital_Status</b> — Customer's marital status.</li>
+									<li><b>Income</b> — Customer's yearly household income.</li>
+									<li><b>Kidhome</b> — Number of children in customer's household.</li>
+									<li><b>Teenhome</b> — Number of teenagers in customer's household.</li>
+									<li><b>Dt_Customer</b> — Date of customer's enrollment with the company.</li>
+									<li><b>Recency</b> — Number of days since customer's last purchase.</li>
+									<li><b>Complain</b> — 1 if customer complained in the last 2 years, 0 otherwise.</li>
+								</p>
+								<h3>Products</h3>
+								<p>
+									<li><b>MntWines</b> — Amount spent on wine in last 2 years.</li>
+									<li><b>MntFruits</b> — Amount spent on fruits in last 2 years.</li>
+									<li><b>MntMeatProducts</b> — Amount spent on meat in last 2 years.</li>
+									<li><b>MntFishProducts</b> — Amount spent on fish in last 2 years.</li>
+									<li><b>MntSweetProducts</b> — Amount spent on sweets in last 2 years.</li>
+									<li><b>MntGoldProds</b> — Amount spent on gold in last 2 years.</li>
+								</p>
+								<h3>Promotion</h3>
+								<p>
+									<li><b>NumDealsPurchases</b> — Number of purchases made with a discount.</li>
+									<li><b>AcceptedCmp1</b> — 1 if customer accepted the offer in the 1st campaign, 0 otherwise.</li>
+									<li><b>AcceptedCmp2</b> — 1 if customer accepted the offer in the 2nd campaign, 0 otherwise.</li>
+									<li><b>AcceptedCmp3</b> — 1 if customer accepted the offer in the 3rd campaign, 0 otherwise.</li>
+									<li><b>AcceptedCmp4</b> — 1 if customer accepted the offer in the 4th campaign, 0 otherwise.</li>
+									<li><b>AcceptedCmp5</b> — 1 if customer accepted the offer in the 5th campaign, 0 otherwise.</li>
+									<li><b>Response</b> — 1 if customer accepted the offer in the last campaign, 0 otherwise.</li>
+								</p>
+								<h3>Place</h3>
+								<p>
+									<li><b>NumWebPurchases</b> — Number of purchases made through the company’s web site.</li>
+									<li><b>NumCatalogPurchases</b> — Number of purchases made using a catalogue.</li>
+									<li><b>NumStorePurchases</b> — Number of purchases made directly in stores.</li>
+									<li><b>NumWebVisitsMonth</b> — Number of visits to company’s web site in the last month.</li>
+								</p>
+
+								<h2>Import Package and Data</h2>
+								<p>Started with imports of some basic libraries that are needed throughout the case. This includes Pandas and Numpy for data handling and processing as well as Matplotlib and Seaborn for visualization.</p>
+								<pre><code>import numpy as np
+import pandas as pd
+from matplotlib import pyplot as plt
+import seaborn as sns
+import os
+
+import plotly.express as px
+
+%matplotlib inline
+</code></pre>
+
+								<p>For this exercise, the data set (.csv format) is downloaded to a local folder, read into the Jupyter notebook and stored in a Pandas DataFrame.</p>
+								<pre><code>customer = pd.read_csv('C:\My Files\Document\Coding\Datasheet\marketing_campaign.csv', sep='\t')
+</code></pre>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project7image/1.jpg" width="900" alt="" /></span></div>
+										</div>
+								</div>
+								<h2>Data Preparation</h2></p>					
+								<p>Get statistical information on numerical features.</p>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image fit"><img src="images/project7image/2.jpg" alt="" /></span></div>
+										</div>
+								</div>		
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project7image/3.jpg" width = "900" alt="" /></span></div>
+										</div>
+								</div>
+								<h3>Handle Missing Value</h3>
+								<p>Lets check the missing value from the predictor.</p>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project7image/4.jpg" width = "200" height= "400" alt="" /></span></div>
+										</div>
+								</div>									
+								<p>The Income column has some missing data. Let's drop the rows in the data with missing values.</p>
+								<h2>Feature Engineering</h2>
+								<p>There is a lot of information given in the dataset related to the customers. In some cases we can group some columns together to create new features and in some cases we can create new columns based on the existing one's to create new features. This would help to better explore the data and draw meaningful insights from it.</p>
+								<h3>Age of Customers</h3>
+								<p>Let's calculate the age of every customer from the birth year of customers. Since the customers enrollment with the company between 2012 and 2014, so we assume that the data was collected in January 2015 for the sake of simplicity.</p>
+								<pre><code>import datetime as dt
+customer['Age'] = 2015 - customer.Year_Birth
+</code></pre>
+								<h3>Months Since Enrollment</h3>
+								<p>From the enrollment date of customers, let's calculate the number of months the customers are affiliated with the company.</p>
+								<pre><code>customer['Dt_Customer'] = pd.to_datetime(customer['Dt_Customer'])
+customer['Month_Customer'] = 12.0 * (2015 - customer.Dt_Customer.dt.year ) + (1 - customer.Dt_Customer.dt.month)
+</code></pre>
+								<h3>Total Spendings</h3>
+								<p>The customer's spendings are given separately for different products. Let's sum them up to calculate the total spendings of the customers.</p>
+								<pre><code>customer['TotalSpendings'] =  customer.MntWines + customer.MntFruits + customer.MntMeatProducts + customer.MntFishProducts + customer.MntSweetProducts + customer.MntGoldProds
+</code></pre>
+								<h3>Age Groups</h3>
+								<p>On the basis of Age let's divide the customers into different age groups.</p>
+								<pre><code>customer.loc[(customer['Age'] >= 13) & (customer['Age'] <= 19), 'AgeGroup'] = 'Teen'
+customer.loc[(customer['Age'] >= 20) & (customer['Age']<= 39), 'AgeGroup'] = 'Adult'
+customer.loc[(customer['Age'] >= 40) & (customer['Age'] <= 59), 'AgeGroup'] = 'Middle Age Adult'
+customer.loc[(customer['Age'] > 60), 'AgeGroup'] = 'Senior Adult'
+</code></pre>
+								<h3>Number of Children</h3>
+								<p>Informationis given separately for kids and teens at home for every customers. Let's sum them up, as they can be better represented together as the number of children at home.</p>
+								<pre><code>customer['Children'] = customer['Kidhome'] + customer['Teenhome']
+</code></pre>
+								<h3>Marital Status</h3>
+								<p>The Marital Status column has different string values: Together, Married, Divorced, Widow, Alone, Absurd, YOLO. Most of them fall under the same category. So let's represent the marital status of customers based on 2 main categories i.e. Partner and Single.</p>
+								<pre><code>customer.Marital_Status = customer.Marital_Status.replace({'Together': 'Partner',
+                                                           'Married': 'Partner',
+                                                           'Divorced': 'Single',
+                                                           'Widow': 'Single', 
+                                                           'Alone': 'Single',
+                                                           'Absurd': 'Single',
+                                                           'YOLO': 'Single'})
+</code></pre>
+								<h3>Removing Outliers</h3>
+								<p>There seems to be some outliers in the Age and Income columns. Let's check them.</p>
+								<pre><code>plt.figure(figsize=(20,10))
+sns.boxplot(y=customer.Age);
+plt.ylabel('Age', fontsize=20, labelpad=20);
+</code></pre>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project7image/5.png" width = "200" height= "300" alt="" /></span></div>
+										</div>
+										<pre><code>plt.figure(figsize=(20,10))
+sns.boxplot(y=customer.Income);
+plt.ylabel('Income', fontsize=20, labelpad=20);
+</code></pre>
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project7image/6.png" width = "200" height= "300" alt="" /></span></div>
+										</div>
+								</div>
+								<p>There are some customers aged above 100. This is unlikely to happen. Let's drop those customers from data.</p>
+								<p>There are some customers who are earning more than 120,000 and some of them even more than 600,000. They are clearly the outliers in the data, so we will leave them out.</p>
+								<h2>Exploratory Data Analysis</h2>
+								<h3>Marital Status</h3>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project7image/7.png" width = "500" height= "300" alt="" /></span></div>
+										</div>
+								</div>
+								<p><b>INSIGHT:</b></p>
+								<p>2/3rd of the customers are living with partners while about 1/3rd are singles</p>
+								<h3>Average Spendings: Marital Status Wise</h3>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project7image/8.png" width = "500" height= "300" alt="" /></span></div>
+										</div>
+								</div>
+								<p><b>INSIGHT:</b></p>
+								<p>Despite being the minority, the Singles spent more money on the average as compared to the customers having partners</p>
+								<h3>Education Level</h3>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project7image/9.png" width = "500" height= "300" alt="" /></span></div>
+										</div>
+								</div>
+								<p><b>INSIGHT:</b></p>
+								<p><li>Half of the customers are University graduates</li>
+								<li>There are more customers who hold PhD degrees than the customers who did Masters</li></p>
+								<h3>Child Status</h3>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project7image/10.png" width = "500" height= "300" alt="" /></span></div>
+										</div>
+								</div>
+								<p><b>INSIGHT:</b></p>
+								<p><li>About 50% of the customers have only one child.</li>
+								<li>28% of the customers do-not have any children at home while 19% of them have 2 children.</li></p>
+								<h3>Average Spendings: Child Status Wise</h3>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project7image/11.png" width = "500" height= "300" alt="" /></span></div>
+										</div>
+								</div>
+								<p><b>INSIGHT:</b></p>
+								<p><li>Customers who don't have any children at home spent higher than the customers having 1 children.</li>
+								<li>The customers having 1 children are spending higher than the customers havin 2 and 3 children.</li></p>
+								<h3>Age Distribution of Customers</h3>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project7image/12.png" width = "500" height= "300" alt="" /></span></div>
+										</div>
+								</div>
+								<p><b>INSIGHT:</b></p>
+								<p>Age of the customers is nearly normally distributed, with most of the customers aged between 40 and 60.</p>
+								<h3>Relationship: Age vs Spendings</h3>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project7image/13.png" width = "500" height= "300" alt="" /></span></div>
+										</div>
+								</div>
+								<p><b>INSIGHT:</b></p>
+								<p>There doesn't seem to be any clear relationship between age of customers and their spending habits.</p>
+								<h3>Customers Segmentation: Age Group Wise</h3>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project7image/14.png" width = "400" height= "400" alt="" /></span></div>
+										</div>
+								</div>
+								<p><b>INSIGHT:</b></p>
+								<p><li>More than 50% of the customers are Middle Age Adults aged between 40 and 60.</li>
+								<li>The 2nd famous age category is Adult, aged between 20 and 40.</li></p>
+								<h3>Average Spendings: Age Group Wise</h3>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project7image/15.png" width = "500" height= "300" alt="" /></span></div>
+										</div>
+								</div>
+								<p><b>INSIGHT:</b></p>
+								<p>Middle age adults spent much more than the other age groups.</p>
+								<h3>Income Distribution of Customers</h3>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project7image/16.png" width = "500" height= "300" alt="" /></span></div>
+										</div>
+								</div>
+								<p><b>INSIGHT:</b></p>
+								<p>The salaries of the customers have normal distribution with most of the customers earning between 25000 and 85000.</p>
+								<h3>Relationship: Income vs Spendings</h3>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project7image/17.png" width = "500" height= "300" alt="" /></span></div>
+										</div>
+								</div>
+								<p><b>INSIGHT:</b></p>
+								<p>The relationship is linear. Customers having higher salaries are spending more.</p>
+
+								<h3>Most Bought Products</h3>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project7image/18.png" width = "500" height= "300" alt="" /></span></div>
+										</div>
+								</div>
+								<p><b>INSIGHT:</b></p>
+								<p><li>Wine and Meats products are the most famous products among the customers.</li>
+								<li>Sweets and Fruits are not being purchased often.</li></p>
+								<h2>Machine Learning Model</h2>
+								<p>Let's find out the different segmenst of the customers based on different features of the customers data using the K-Means Clusters. Let's first drop the unnecessary columns from the data.</p>
+								<h3>Optimum Clusters Using Elbow Method</h3>
+								<p>Let's choose the optimum number of clusters based on the Elbow method.</p>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project7image/19.png" width = "500" height= "300" alt="" /></span></div>
+										</div>
+								</div>
+								<p>Based on the above plot we will segment the customers into 4 clusters, as the inertia value donot decrase much after 4 clusters.</p>
+								<h3>Clusters Identification</h3>
+								<p>Let's try to identify the modelled 4 clusters from different features of the data</p>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project7image/20.png" width = "600" height= "400" alt="" /></span></div>
+										</div>
+								</div>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project7image/21.png" width = "600" height= "400" alt="" /></span></div>
+										</div>
+								</div>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project7image/22.png" width = "600" height= "400" alt="" /></span></div>
+										</div>
+								</div>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project7image/23.png" width = "600" height= "400" alt="" /></span></div>
+										</div>
+								</div>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project7image/24.png" width = "600" height= "400" alt="" /></span></div>
+										</div>
+								</div>
+								<h3>Clusters Interpretation</h3>
+								<p>From the above analysis we can segment the customers into 4 groups based on their income and total spendings:
+									<li><b>Platinum:</b> The one's with highest earnings and highest spendings.</li>
+									<li><b>Gold:</b> The one's with high earnings and high spendings.</li>
+									<li><b>Silver:</b> The one's having low salary and less spendings.</li>
+									<li><b>Bronze:</b> The one's having lowest salary and least spendings.</li></p>
+								<h3>Data Exploration: Clusters Based</h3>
+								<p>Let's explore the data again based on the modelled clusters to identify the spending habits of the customers</p>
+								<pre><code>customer_kmeans.clusters = customer_kmeans.clusters.replace({1: 'Bronze',
+                                                             2: 'Platinum',
+                                                             3: 'Silver',
+                                                             0: 'Gold'})
+
+customer['clusters'] = customer_kmeans.clusters
+</code></pre>
+								<h3>Customers Distribution</h3>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project7image/25.png" width = "650" height= "400" alt="" /></span></div>
+										</div>
+								</div>
+								<p><b>INSIGHT:</b></p>
+								<p><li>Most of the customers lie in the Silver and Gold categories, about 29% and 28% respectively.</li>
+								<li>Most of the customers lie in the Silver and Gold categories, about 29% and 28% respectively.</li></p>
+								<h3>Relationship: Income vs. Spendings</h3>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project7image/26.png" width = "600" height= "400" alt="" /></span></div>
+										</div>
+								</div>
+								<p><b>INSIGHT:</b></p>
+								<p><li>The 4 clusters can easily be identified from the above plot.</li>
+								<li>Those earning more are also spending more</li></p>
+
+								<h3>Spending Habits by Clusters</h3>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project7image/27.png" width = "600" height= "400" alt="" /></span></div>
+										</div>
+								</div>
+								<p><b>INSIGHT:</b></p>
+								<p>Customers from all the segments have spent most of their money on Wine and Meat products</p>
+
+								<h3>Purchasing Habits by Clusters</h3>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project7image/28.png" width = "600" height= "400" alt="" /></span></div>
+										</div>
+								</div>
+								<p><b>INSIGHT:</b></p>
+								<p><li>Platinum and Gold Customers mostly likely to do store purchasing.</li>
+								<li>Most of the web and catalog purchases are also done by the customers from Platinum and Gold segments.</li>
+								<li>Silver and Gold categoriesnalso like to buy from the stores.</li>
+								<li>Deal purchases are common among the Gold and Silver customers.</li>
+								<li>Silver category customers made the most number of web visits while customers from Platinum segment have least web visits.</li></p>
+								<h3>Promotions Acceptance by Clusters</h3>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project7image/29.png" width = "600" height= "400" alt="" /></span></div>
+										</div>
+								</div>
+								<p><b>INSIGHT:</b></p>
+								<p><li>Platinum customers accepted the most of the offers from the comapany.</li>
+								<li>Compaign 1, 5 and final one seems to be the most successful one's.</li>
+								<li>Compaign 1, 5 and final one seems to be the most successful one's.</li></p>
+
+								<h2>Conclusion</h2>
+								<p><li>Most of the customers are university graduates.</li>
+								<li>Most of the customers are living with partners.</li>
+								<li>Those living alone have spent more than those living with partners.</li>
+								<li>Most of the customers have only one child.</li>
+								<li>Those having no children have spent more.</li>
+								<li>Middle Age Adults, aged between 40 and 60, are famous age group category.</li>
+								<li>Middle Age Adults are spending on average, more than the other age groups.</li>
+								<li>Most of the customers are earning between 25000 and 85000.</li>
+								<li>Wine and Meat products are very famous among the customers.</li>
+								<li>On the basis of income and total spendings, customers are divided into 4 clusters i.e. Platinum, Gold, Silver and Bronze.</li>
+								<li>Most of the customers fall into the Silver and Gold categories.</li>
+								<li>Those who are earning more are also spending more.</li>
+								<li>Most of the customers like to buy from store and then online from the web.</li>
+								<li>Platinum customers showed more acceptance towards promotion campaigns while bronze customers the least interest.</li></p>
+								<h2>Answering Question</h2>
+								<p><b>What are the statistical characteristics of the customers?</b></p>
+								<p>The company's customers are mostly married. There are more Middle Aged Adults, aged between 40 and 60 and most of them like to have one child. Most of the customers hold bachelor degree and their earnings are mostly between 25,000 and 85,000.</p>
+								<p><b>What are the spending habits of the customers?</b></p>
+								<p>Customers have spent more on wine and meat products. Those without children have spent more than those having children. Singles are spending more than the one's with the partners. Middle aged adults have spent more than the other age groups. Store shopping is the preferred channel for purchasing among the customers. Web and Catalog purchasing also have potential.</p>
+								<p><b>Are there some products which need more marketing?</b></p>
+								<p>Sweets and Fruits need some effective marketing. Company needs to run promotions for these products in order to increase the revenue from these products. Baskets of the least selling products combined with the most selling products can be effective.</p>
+								<p><b>How the marketing can be made effective?</b></p>
+								<p>As a marketing recommendation give coupons to the old and high spending customers. Market the cheap and on-offer products to the low income and low spending customers. Web purchasing has some potential. To unlock this give special discounts to the customers who sign up on company's website.</p>
+
+
+							</section>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+
+					</footer>
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
