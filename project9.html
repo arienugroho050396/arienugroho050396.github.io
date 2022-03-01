@@ -73,32 +73,32 @@ import plotly.express as px
 								<p>For this exercise, the data set (.csv format) is uploaded to my repository github, read into the Jupyter notebook and stored in a Pandas DataFrame. </p>
 								<div class="box alt">
 										<div class="row gtr-50 gtr-uniform">
-											<div class="col-4"><span class="image"><img src="images/project9image/1.jpg" width="600" alt="" /></span></div>
+											<div class="col-4"><span class="image"><img src="images/project9image/1.JPG" width="600" alt="" /></span></div>
 										</div>
 								</div>
 								<h2>Data Preparation and Cleaning</h2></p>					
 								<p>As a first step, the data will be cleaned. Columns with missing values will be identified and then the missing values will be handeled. By displaying the dataset we can quickly recognize that there are 24973 rows and 9 columns in the dataframe  </p>
 								<div class="box alt">
 										<div class="row gtr-50 gtr-uniform">
-											<div class="col-4"><span class="image"><img src="images/project9image/2.jpg" width = "600" alt="" /></span></div>
+											<div class="col-4"><span class="image"><img src="images/project9image/2.JPG" width = "600" alt="" /></span></div>
 										</div>
 								</div>
 								<p>By displaying the unique values from Brand column of dataset, we can see that the cars from 23 different brands are being dricven in Pakistan. The dataset also contains NAN values, which means that for some cars the brand information is missing. The missing values will be handed later.</p>
 								<div class="box alt">
 										<div class="row gtr-50 gtr-uniform">
-											<div class="col-4"><span class="image"><img src="images/project9image/3.jpg" width = "500" alt="" /></span></div>
+											<div class="col-4"><span class="image"><img src="images/project9image/3.JPG" width = "500" alt="" /></span></div>
 										</div>
 								</div>
 								<p>By sorting the unique values from the Year column, it is infered that the dataset contains the information for car models from 1915 till 2020. The release year for some cars is missing as the array also conatins NAN values.</p>
 								<div class="box alt">
 										<div class="row gtr-50 gtr-uniform">
-											<div class="col-4"><span class="image"><img src="images/project9image/4.jpg" width = "300" alt="" /></span></div>
+											<div class="col-4"><span class="image"><img src="images/project9image/4.JPG" width = "300" alt="" /></span></div>
 										</div>
 								</div>
 								<p>Looking at the non-null counts it is clear that only for the Price column the data is complete. For all other columns there are missing entries. For a customer buying a new car, the most important information is the price, the kilometers (in used cars) driven and the release year. I will next replace the missing values for kilometers driven and year with the average values of the respective columns.</p>
 								<div class="box alt">
 										<div class="row gtr-50 gtr-uniform">
-											<div class="col-4"><span class="image"><img src="images/project9image/5.jpg" width = "300" alt="" /></span></div>
+											<div class="col-4"><span class="image"><img src="images/project9image/5.JPG" width = "300" alt="" /></span></div>
 										</div>
 								</div>
 								<p>Using the decribe method we can easily fetch the mean values of kilometers driven and year.</p>
@@ -109,7 +109,7 @@ import plotly.express as px
 </code></pre>
 								<div class="box alt">
 										<div class="row gtr-50 gtr-uniform">
-											<div class="col-4"><span class="image"><img src="images/project9image/6.jpg" width = "300" alt="" /></span></div>
+											<div class="col-4"><span class="image"><img src="images/project9image/6.JPG" width = "300" alt="" /></span></div>
 										</div>
 								</div>
 								<p>Now using the info method we can verify that the data for driven kilometers and year columns is also complete</p>
@@ -240,7 +240,7 @@ import plotly.express as px
 								<h3>What is the average price of Suzuki, Toyota and Honda cars i.e. the 3 most famous car brands in Pakistan?</h3>
 								<div class="box alt">
 										<div class="row gtr-50 gtr-uniform">
-											<div class="col-4"><span class="image"><img src="images/project9image/22.jpg" width = "250" alt="" /></span></div>
+											<div class="col-4"><span class="image"><img src="images/project9image/22.JPG" width = "250" alt="" /></span></div>
 										</div>
 								</div>
 								<p>The average prices of Suzuki, Toyota and Honda cars are 5.6, 1.65 and 1.14 Million Pakistani Rupees</p>
@@ -248,7 +248,7 @@ import plotly.express as px
 								<h3>Cars from which release years are most cheapest (on average) in Pakistan for the release years beyond 2000?</h3>
 								<div class="box alt">
 										<div class="row gtr-50 gtr-uniform">
-											<div class="col-4"><span class="image"><img src="images/project9image/23.jpg" width = "200" alt="" /></span></div>
+											<div class="col-4"><span class="image"><img src="images/project9image/23.JPG" width = "200" alt="" /></span></div>
 										</div>
 								</div>
 								<p>The cars from the release year 2001 are the cheapest one's among the cars which were released after Year 2000</p>
@@ -256,7 +256,7 @@ import plotly.express as px
 								<h3>Which brand cars have covered most kilometers on the roads?</h3>
 								<div class="box alt">
 										<div class="row gtr-50 gtr-uniform">
-											<div class="col-4"><span class="image"><img src="images/project9image/24.jpg" width = "250" alt="" /></span></div>
+											<div class="col-4"><span class="image"><img src="images/project9image/24.JPG" width = "250" alt="" /></span></div>
 										</div>
 								</div>
 								<p>Suzuki, Toyota and Honda i.e. Japenese brand cars have been driven the most in Pakistan</p>
@@ -264,7 +264,7 @@ import plotly.express as px
 								<h3>Which fuel type cars are cheapest on average?</h3>
 								<div class="box alt">
 										<div class="row gtr-50 gtr-uniform">
-											<div class="col-4"><span class="image"><img src="images/project9image/25.jpg" width = "200" alt="" /></span></div>
+											<div class="col-4"><span class="image"><img src="images/project9image/25.JPG" width = "200" alt="" /></span></div>
 										</div>
 								</div>
 								<p>Although LPG is not available in abundant in Pakistan but still LPG cars are on avergae cheapest in Pakistan</p>
@@ -272,7 +272,7 @@ import plotly.express as px
 								<h3>Which city has the highest registered Mercedes cars?</h3>
 								<div class="box alt">
 										<div class="row gtr-50 gtr-uniform">
-											<div class="col-4"><span class="image"><img src="images/project9image/26.jpg" width = "250" alt="" /></span></div>
+											<div class="col-4"><span class="image"><img src="images/project9image/26.JPG" width = "250" alt="" /></span></div>
 										</div>
 								</div>
 								<p>Merecedes cars are registered most in Karachi, which is the biggest city of Pakistan according to the population</p>
