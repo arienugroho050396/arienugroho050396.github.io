@@ -1,0 +1,316 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Pakistan Used Cars</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">Home</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">main page</a></li>
+							<li class="active"><a href="project9.html">Pakistan Used Cars</a></li>
+							<li><a href="aboutme.html">About Me</a></li>
+							<li><a href="contactme.html">Contact</a></li>				
+						</ul>
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/in/mocharienugroho/" class="icon brands fa-linkedin"><span class="label">Facebook</span></a></li>
+							<li><a href="https://github.com/arienugroho050396" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+							<li><a href="https://medium.com/@arienugroho650" class="icon brands fa-medium"><span class="label">Medium</span></a></li>
+							<li><a href="https://www.instagram.com/moch_arie_n/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<span class="date">March 01, 2022</span>
+									<h1>Pakistan Used Cars<br />
+									</h1>
+								</header>
+								<div class="image fit"><img src="images/project9cover.jpg" alt="" /></div>
+								<ul class="actions">
+										<li><a href="https://github.com/arienugroho050396/Pakistan-Used-Cars" class="button">Repository</a></li>
+										<li><a href="https://www.kaggle.com/karimali/used-cars-data-pakistan" class="button">Kaggle Dataset</a></li>
+									</ul>
+								<p>This dataset was collected for the research purposes and was uploaded on kaggle platform about 2 years ago. It contains information regarding the sale of mostly used cars in Pakistan along with their prices, year, model, brand, kilometers driven, registration information etc. The data was collected from differenet car selling websites in Pakistan. I would formulate some questions  to gain deeper understanding of the data and bring some interesting conclusions from the data.
+									<li><b>What is the average price of Suzuki, Toyota and Honda cars i.e. the 3 most famous car brands in Pakistan?</b></li>
+									<li><b>Cars from which release years are most cheapest (on average) in Pakistan for the release years beyond 2000?</b></li>
+									<li><b>What amount of investment is needed to get employees up to a fully productive speed?</b></li>
+									<li><b>Which brand cars have covered most kilometers on the roads?</b></li>
+									<li><b>Which fuel type cars are cheapest on average?</b></li>
+								</p>
+								<h2>Import Package and Data</h2>
+								<pre><code>import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+%matplotlib inline
+import plotly.express as px
+</code></pre>
+
+								<p>For this exercise, the data set (.csv format) is uploaded to my repository github, read into the Jupyter notebook and stored in a Pandas DataFrame. </p>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project9image/1.jpg" width="600" alt="" /></span></div>
+										</div>
+								</div>
+								<h2>Data Preparation and Cleaning</h2></p>					
+								<p>As a first step, the data will be cleaned. Columns with missing values will be identified and then the missing values will be handeled. By displaying the dataset we can quickly recognize that there are 24973 rows and 9 columns in the dataframe  </p>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project9image/2.jpg" width = "600" alt="" /></span></div>
+										</div>
+								</div>
+								<p>By displaying the unique values from Brand column of dataset, we can see that the cars from 23 different brands are being dricven in Pakistan. The dataset also contains NAN values, which means that for some cars the brand information is missing. The missing values will be handed later.</p>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project9image/3.jpg" width = "500" alt="" /></span></div>
+										</div>
+								</div>
+								<p>By sorting the unique values from the Year column, it is infered that the dataset contains the information for car models from 1915 till 2020. The release year for some cars is missing as the array also conatins NAN values.</p>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project9image/4.jpg" width = "300" alt="" /></span></div>
+										</div>
+								</div>
+								<p>Looking at the non-null counts it is clear that only for the Price column the data is complete. For all other columns there are missing entries. For a customer buying a new car, the most important information is the price, the kilometers (in used cars) driven and the release year. I will next replace the missing values for kilometers driven and year with the average values of the respective columns.</p>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project9image/5.jpg" width = "300" alt="" /></span></div>
+										</div>
+								</div>
+								<p>Using the decribe method we can easily fetch the mean values of kilometers driven and year.</p>
+								<h3>Replacing Missing Values</h3>
+								<pre><code>cars_df['KMs Driven'].replace(np.nan, cars_df['KMs Driven'].mean(), inplace=True)
+</code></pre>
+								<pre><code>cars_df.Year.replace(np.nan, cars_df.Year.mean(), inplace=True)
+</code></pre>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project9image/6.jpg" width = "300" alt="" /></span></div>
+										</div>
+								</div>
+								<p>Now using the info method we can verify that the data for driven kilometers and year columns is also complete</p>
+								<h2>Exploratory Data Analysis</h2>
+								<p>I will explore the different columns in the dataset to gain some insight into the data. This would be done mostly by drawing different graphs. Visualization of the data would help to draw interesting conclusion from the data</p>
+								<h3>Popular Models</h3>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project9image/7.png" width = "800" alt="" /></span></div>
+										</div>
+								</div>
+								<p>The most popular car models are Cultus VXR, Alto, Corolla GLI, Mehran VX, Mehran VXR and Bolan.</p>
+								<h3>Popularity of Release Years</h3>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project9image/8.png" width = "800" alt="" /></span></div>
+										</div>
+								</div>
+								<p>The cars from the last 15 years starting from Release Year 2004 are popular ones.</p>
+								<h3>Relationship between Car's Release Year and Price</h3>
+								<p>The better way to study this relationship is to consider the age of car than than the year when it was released. Let's add another column in the dataframe for the age of car. The age is calculated with the help of datetime library in Python.</p>
+								<h3>Adding Age Column</h3>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project9image/9.png" width = "500" alt="" /></span></div>
+										</div>
+								</div>
+								<p>It's an inverse relationship with the price decreasing as the age of the car is increasing. As the cars prices vary in very large range, so it would be better to plot the price in logrithmic scale</p>
+
+								<h3>Adding Log Price Column</h3>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project9image/10.png" width = "500" alt="" /></span></div>
+										</div>
+								</div>
+								<p>On the logrithmic scale, the visualization becomes much clearer than before and the inverse relationship is more obvious</p>
+
+								<h3>Relationship between Mileage and Price</h3>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project9image/11.png" width = "500" alt="" /></span></div>
+										</div>
+								</div>
+								<p>The relationship is exponentially decreasing. The cars which have mileage less than 1000 kilometers are considered new and the cars which have mileage more than 1 million are very rare as they are not considered to be in good condition. Let's drop the rows in the data accordingly for better visualization</p>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project9image/12.png" width = "500" alt="" /></span></div>
+										</div>
+								</div>
+								<p>The relationship is exponentially decreasing. The price of car decreases sharply with increasing mileage</p>
+								
+								<h3>European Vs. Non-european Brands</h3>
+								<p>Let's divide the brands into non-european and european brands and study the same relationship</p>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project9image/13.png" width = "800" alt="" /></span></div>
+										</div>
+								</div>
+								<p>The european car brands are very rare in Pakistan, so not enough data is available to draw any clear inferences. The available data only contains less than 1% of european cars as compared to the overall car's data</p>
+
+								<h3>Popularity based on Fuel</h3>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project9image/14.png" width = "500" alt="" /></span></div>
+										</div>
+								</div>
+								<p>From the above bar graph it can be easily visulaized that the people in Pakistan prefer to drive mostly Petrol cars. LPG cars have the lowest numbers of drivers in Pakistan as this fuel is not available in abundant in Pakistan</p>
+
+								<h3>Sales of Top 10 Brands</h3>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project9image/15.png" width = "500" alt="" /></span></div>
+										</div>
+								</div>
+								<p>The bar plot shows that the people in Pakistan prefer cars from Japenese brands as the most selling cars from the top 10 brands in Pakistan are from Japenese brands. This is obvious as the most of the Japenese car companies have manufacturing plants in Pakistan</p>
+								
+								<h3>Correlation between Release Year and Kilometers Driven</h3>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project9image/16.png" width = "500" alt="" /></span></div>
+										</div>
+								</div>
+								<p>The above scatterplot shows that Pakistani people like to drive cars of the new models i.e. released between 1980 and 2020. For the cars between 1980 and 2000 models, the preferred fuel was CNG as it is the cheapest fuel available in Pakistan. For the 2000 - 2020 model cars, the people tend to shift to the Petrol cars due to the shortage of CNG in Pakistan lately</p>
+
+								<h3>Cities with Highest Registration of Cars</h3>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project9image/17.png" width = "500" alt="" /></span></div>
+										</div>
+								</div>
+								<p>Most of the cars sold online are registered in Karachi and Lahore, which are the two biggest cities of Pakistan according to the population. Islamabad, the capital of Pakistan lies at the third position as most corporate people live there. Next two positions are occupied by Rawalpindi and Multan for cars registration, which also lies in the list of top 10 most populas cities of Pakistan. So it can be concluded that most of the car's business is being done in the most populas cities of Pakistan</p>
+
+								<h3>Most Expensive Car Brands</h3>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project9image/18.png" width = "500" alt="" /></span></div>
+										</div>
+								</div>
+								<p>The figure shows that the most expensive barnds are european brands like Range Rover, Audi, Porsche, BMW etc as the cars from these barnds get imported in Pakistan. These brands don't have manufacturing in Pakistan</p>
+
+								<h3>Distribution of Kilometers Driven</h3>
+								<p>The used cars which had already been driven less than a million are still considered to be in good conditions in a country like Pakistan. So let's visulaize the distribution of kilometers driven by cars</p>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project9image/19.png" width = "500" alt="" /></span></div>
+										</div>
+								</div>
+								<p>The histogram shows that the the used cars which had been put up for the sale online are mostly driven between 50 thousand and 2 lack kilometers while a very less number of cars which are driven more than 2 lack are available online. It means people prefer to buy cars which are driven less than the 2 lack kilometers</p>
+
+								<h3>Distribution of Price</h3>
+								<p>Lets explore the distribution of car's prices in range of 1 lack and 1 million</p>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project9image/20.png" width = "500" alt="" /></span></div>
+										</div>
+								</div>
+								<p>The distribution shows that the number of cars are almost evenly distributed in the explored price range with the large number of cars lies in the range less than a half a million. It means people in Pakistan prefer to buy cars which cost less than half a million</p>
+
+								<h3>Price Distribution of Top 3 Brands</h3>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project9image/21.png" width = "500" alt="" /></span></div>
+										</div>
+								</div>
+								<p>Among the top three brands in Pakistan, people again prefer to buy cars with the prices lower than half a million. The major car brand in this price range is Suzuki, which is the most famous brand in Pakistan. The distribution also shows that the Toyota and Honda cars are relatively expensive than the Suzuki cars as the sample density of Toyota and Honda cars tend to increase after half million price range</p>
+
+								<h2>Answering Some Basic Questions</h2>
+								<h3>What is the average price of Suzuki, Toyota and Honda cars i.e. the 3 most famous car brands in Pakistan?</h3>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project9image/22.jpg" width = "250" alt="" /></span></div>
+										</div>
+								</div>
+								<p>The average prices of Suzuki, Toyota and Honda cars are 5.6, 1.65 and 1.14 Million Pakistani Rupees</p>
+
+								<h3>Cars from which release years are most cheapest (on average) in Pakistan for the release years beyond 2000?</h3>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project9image/23.jpg" width = "200" alt="" /></span></div>
+										</div>
+								</div>
+								<p>The cars from the release year 2001 are the cheapest one's among the cars which were released after Year 2000</p>
+
+								<h3>Which brand cars have covered most kilometers on the roads?</h3>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project9image/24.jpg" width = "250" alt="" /></span></div>
+										</div>
+								</div>
+								<p>Suzuki, Toyota and Honda i.e. Japenese brand cars have been driven the most in Pakistan</p>
+
+								<h3>Which fuel type cars are cheapest on average?</h3>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project9image/25.jpg" width = "200" alt="" /></span></div>
+										</div>
+								</div>
+								<p>Although LPG is not available in abundant in Pakistan but still LPG cars are on avergae cheapest in Pakistan</p>
+
+								<h3>Which city has the highest registered Mercedes cars?</h3>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project9image/26.jpg" width = "250" alt="" /></span></div>
+										</div>
+								</div>
+								<p>Merecedes cars are registered most in Karachi, which is the biggest city of Pakistan according to the population</p>
+								<h2>Conclusion</h2>
+								<p>Following inferences and conclusions can be drawn from the the exploratory analysis of the data:
+								<li>Most cars sold are from Japenese brands as these have manufacturing setups in Pakistan.</li>
+								<li>Most of the cars in Pakistan are the Petrol cars.</li>
+								<li>In the late late 90's CNG cars got famous in Pakistan as this is the cheapest fuel available in Pakistan but after Year 2000, the trend is again shifting to Petrol cars.</li>
+								<li>Most expensive cars in Pakistan are from European brands as the cars from these brands are the imported ones.</li>
+								<li>Cities with highest population have the most registered cars.</li>
+								<li>Elite cars from European brands are mostly registered in biggest cities of Pakistan.</li>
+								<li>Pakistani people mostly like to buy used cars.</li>
+								<li>Most cars being driven in Pakistan are from the last 15 years.</li>
+
+							</section>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+
+					</footer>
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
