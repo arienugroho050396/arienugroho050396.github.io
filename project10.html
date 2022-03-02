@@ -114,31 +114,31 @@ import plotly.graph_objects as go
 								<p>For this exercise, the data set (.csv format) is uploaded to my repository github, read into the Jupyter notebook and stored in a Pandas DataFrame. </p>
 								<div class="box alt">
 										<div class="row gtr-50 gtr-uniform">
-											<div class="col-4"><span class="image"><img src="images/project10image/1.jpg" width="900" alt="" /></span></div>
+											<div class="col-4"><span class="image"><img src="images/project10image/1.JPG" width="900" alt="" /></span></div>
 										</div>
 								</div>
 								<h2>Data Preparation and Cleaning</h2></p>					
 								<p>Checking some feature from dataset</p>
 								<div class="box alt">
 										<div class="row gtr-50 gtr-uniform">
-											<div class="col-4"><span class="image"><img src="images/project10image/2.jpg" width = "400" alt="" /></span></div>
+											<div class="col-4"><span class="image"><img src="images/project10image/2.JPG" width = "400" alt="" /></span></div>
 										</div>
 								</div>
 								<p>There are a total of 26 columns in the dataset. We see that except the age column, all the columns are of object datatype. Comment column seems to contain most number ( 70% ) of null values, which makes sense because it was an optional text box so it's reasonable to expect that many (most) respondents would leave it blank. We will be dropping the timestamp column because it's contains date, month, year and time the respondent took this questionnaire, which is irrelevant for us. The state column also contains a lot of null values. We'll dig deeper into that.</p>
 								<div class="box alt">
 										<div class="row gtr-50 gtr-uniform">
-											<div class="col-4"><span class="image"><img src="images/project10image/3.jpg" width = "200" alt="" /></span></div>
+											<div class="col-4"><span class="image"><img src="images/project10image/3.JPG" width = "200" alt="" /></span></div>
 										</div>
 								</div>
 								<div class="box alt">
 										<div class="row gtr-50 gtr-uniform">
-											<div class="col-4"><span class="image"><img src="images/project10image/4.jpg" width = "500" alt="" /></span></div>
+											<div class="col-4"><span class="image"><img src="images/project10image/4.JPG" width = "500" alt="" /></span></div>
 										</div>
 								</div>
 								<p>It will be really misleading to conclude that a certain country faces more problem with the mental health of employees because around 60% of the people belong to The US. Moreover there are a lot of countries which have only one respondents. The country column thus becomes pointless. We will be dopping this. A quick look at the states suggest us that it is applicable for the one's only in The US, so we'll drop it as well.</p>
 								<div class="box alt">
 										<div class="row gtr-50 gtr-uniform">
-											<div class="col-4"><span class="image"><img src="images/project10image/5.jpg" width = "550" alt="" /></span></div>
+											<div class="col-4"><span class="image"><img src="images/project10image/5.JPG" width = "550" alt="" /></span></div>
 										</div>
 								</div>
 								<p> 
@@ -151,7 +151,7 @@ import plotly.graph_objects as go
 								</p>
 								<div class="box alt">
 										<div class="row gtr-50 gtr-uniform">
-											<div class="col-4"><span class="image"><img src="images/project10image/6.jpg" width = "250" alt="" /></span></div>
+											<div class="col-4"><span class="image"><img src="images/project10image/6.JPG" width = "250" alt="" /></span></div>
 										</div>
 								</div>
 								<p>Unknowingly, we have stumbled upon the fact that the number of males in the dataset are 4 times the number of females. Thus, we must keep this in mind and avoid making any faulty assumptions that males are more susceptible to mental health issues etc. Alternatively, we may conclude that the number of males in the tech industry are much more as compared to the number of females (This research was conducted specifically for the tech industry).</p>
@@ -336,7 +336,7 @@ import plotly.graph_objects as go
 								<h2>Data Preparation</h2>
 								<div class="box alt">
 										<div class="row gtr-50 gtr-uniform">
-											<div class="col-4"><span class="image"><img src="images/project10image/30.jpg" width = "300" alt="" /></span></div>
+											<div class="col-4"><span class="image"><img src="images/project10image/30.JPG" width = "300" alt="" /></span></div>
 										</div>
 								</div>
 								<p>We have only two columns left that contain null values - work_interfere and self_employed. Let us try to fill these null values and make our data ready for further processing.
@@ -345,23 +345,23 @@ import plotly.graph_objects as go
 								We will be replacing the blank values with 'Don't Know' for work_interfere category and for the</p>
 								<div class="box alt">
 										<div class="row gtr-50 gtr-uniform">
-											<div class="col-4"><span class="image"><img src="images/project10image/31.jpg" width = "400" alt="" /></span></div>
+											<div class="col-4"><span class="image"><img src="images/project10image/31.JPG" width = "400" alt="" /></span></div>
 										</div>
 								</div>
 								<div class="box alt">
 										<div class="row gtr-50 gtr-uniform">
-											<div class="col-4"><span class="image"><img src="images/project10image/32.jpg" width = "250" alt="" /></span></div>
+											<div class="col-4"><span class="image"><img src="images/project10image/32.JPG" width = "250" alt="" /></span></div>
 										</div>
 								</div>
 								<div class="box alt">
 										<div class="row gtr-50 gtr-uniform">
-											<div class="col-4"><span class="image"><img src="images/project10image/33.jpg" width = "500" alt="" /></span></div>
+											<div class="col-4"><span class="image"><img src="images/project10image/33.JPG" width = "500" alt="" /></span></div>
 										</div>
 								</div>
 								<p>We can clearly see that all the columns except the 'Age', consist of object type values. We also notice that most of the columns consist of values 'Yes', 'No' , 'Maybe' etc. which can be easily encoded. So the next step that we would perform will be encoding.</p>
 								<div class="box alt">
 										<div class="row gtr-50 gtr-uniform">
-											<div class="col-4"><span class="image"><img src="images/project10image/34.jpg" width = "250" alt="" /></span></div>
+											<div class="col-4"><span class="image"><img src="images/project10image/34.JPG" width = "250" alt="" /></span></div>
 										</div>
 								</div>
 								<p>We can see that the target column, i.e 'treatment' has almost equal values for both the categories. This means that we do not have to perform undersampling or oversampling. Now let us make a heatmap and try to understand the correlation of various features with the target variable.</p>
@@ -373,7 +373,7 @@ import plotly.graph_objects as go
 								<h2>Evaluating Model</h2>
 								<div class="box alt">
 										<div class="row gtr-50 gtr-uniform">
-											<div class="col-4"><span class="image"><img src="images/project10image/36.jpg" width = "900" alt="" /></span></div>
+											<div class="col-4"><span class="image"><img src="images/project10image/36.JPG" width = "900" alt="" /></span></div>
 										</div>
 								</div>
 								<div class="box alt">
