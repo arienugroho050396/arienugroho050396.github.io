@@ -1,0 +1,372 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Campus Recruitment</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">Home</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">main page</a></li>
+							<li class="active"><a href="project11.html">Campus Recruitment</a></li>
+							<li><a href="aboutme.html">About Me</a></li>
+							<li><a href="contactme.html">Contact</a></li>				
+						</ul>
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/in/mocharienugroho/" class="icon brands fa-linkedin"><span class="label">Facebook</span></a></li>
+							<li><a href="https://github.com/arienugroho050396" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+							<li><a href="https://medium.com/@arienugroho650" class="icon brands fa-medium"><span class="label">Medium</span></a></li>
+							<li><a href="https://www.instagram.com/moch_arie_n/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<span class="date">March 06, 2022</span>
+									<h1>Campus Recruitment<br />
+									</h1>
+								</header>
+								<div class="image fit"><img src="images/project11cover.jpg" alt="" /></div>
+								<ul class="actions">
+										<li><a href="https://github.com/arienugroho050396/Campus-Recruitment-Analysis" class="button">Repository</a></li>
+										<li><a href="https://www.kaggle.com/benroshan/factors-affecting-campus-placement" class="button">Kaggle Dataset</a></li>
+									</ul>
+								<p>Campus recruitment is a strategy for sourcing, engaging and hiring young talent for internship and entry-level positions. College recruiting is typically a tactic for medium- to large-sized companies with high-volume recruiting needs, but can range from small efforts (like working with university career centers to source potential candidates) to large-scale operations (like visiting a wide array of colleges and attending recruiting events throughout the spring and fall semester). Campus recruitment often involves working with university career services centers and attending career fairs to meet in-person with college students and recent graduates.
+								</p>
+								<p>Our dataset revolves around the placement season of a Business School in India. Where it has various factors on candidates getting hired such as work experience,exam percentage etc., Finally it contains the status of recruitment and remuneration details.</p>
+								<p> There are 3 primary goal in this project, first do a exploratory analysis of the Recruitment dataset, second do an visualization analysis of the Recruitment dataset and last predict whether a student got placed or not using classification models.</p>
+
+								<h2>Data Fields</h2>
+								<p>
+									<li><b>sl_no</b> — Serial Number</li>
+									<li><b>gender</b> — Gender- Male='M',Female='F'</li>
+									<li><b>ssc_p </b> — Secondary Education percentage- 10th Grade</li>
+									<li><b>ssc_b </b> — Board of Education- Central/ Others</li>
+									<li><b>hsc_b </b> — Higher Secondary Education percentage- 12th Grade</li>
+									<li><b>hsc_s </b> — Specialization in Higher Secondary Education</li>
+									<li><b>degree_p</b> — Degree Percentage</li>
+									<li><b>degree_t</b> — Under Graduation(Degree type)- Field of degree education</li>
+									<li><b>workex </b> — Work Experience</li>
+									<li><b>etest_p</b> — Entrance Test Percentage</li>
+									<li><b>mba_p</b> — MBA Percentage</li>
+									<li><b>status</b> — Placed or not</li>
+									<li><b>salary</b> — Salary offered</li>
+								</p>
+
+								<h2>Import Package and Data</h2>
+								<pre><code>import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+import sklearn 
+%matplotlib inline
+</code></pre>
+
+								<p>For this exercise, the data set (.csv format) is uploaded to my repository github, read into the Jupyter notebook and stored in a Pandas DataFrame. </p>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project11image/1.jpg" width="800" alt="" /></span></div>
+										</div>
+								</div>
+								<p>We have Gender and Educational qualification data. We have all the educational performance(score) data. We have the status of placement and salary details. We can expect null values in salary as candidates who weren't placed would have no salary. Status of placement is our target variable rest of them are independent variable except salary.</p>
+								<h2>Data Preparation and Cleaning</h2>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project11image/2.jpg" width="300" alt="" /></span></div>
+										</div>
+								</div>
+								<p>We have 215 candidate details and there are mixed datatypes in each column. We have few missing values in the salary column as expected since those are the people who didn't get hired. We also have 1 integer,5 float and 8 object datatypes in our dataset</p>
+								<h3>Checking Missing Value</h3>
+								<p>Datasets in the real world are often messy, However, this dataset is almost clean and simple. But lets check the missing value first</p>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project11image/3.jpg" width="300" alt="" /></span></div>
+										</div>
+								</div>
+								<p>There are <b>67 null values</b> in our data, which means 67 unhired candidates. We can't drop these values as this will provide a valuable information on why candidates failed to get hired. We can't impute it with mean/median values and it will go against the context of this dataset and it will show unhired candidates got salary. Our best way to deal with these null values is to <b>impute it with '0'</b> which shows they don't have any income.</p>
+								<h3>Handling Missing Value</h3>
+								<p>First lets focus on the missing data in review features,if we drop the rows which has null values we might sabotage some potential information from the dataset. So we have to impute values into the NaN records which leads us to accurate models. Since it is a salary feature,it is best to impute the records with '0' for unhired candidates</p>
+								<p>After we replace missing value with '0' now we need to drop unwanted features. We have dropped <b>serial number</b> as we have index as default and we have <b>dropped the boards of school education</b> as I believe it doesn't matter for recruitment.</p>
+								<h3>Outliers</h3>
+								<p>Outliers are unusual values in your dataset, and they can distort statistical analyses and violate their assumptions. Unfortunately, all analysts will confront outliers and be forced to make decisions about what to do with them. Given the problems they can cause, you might think that it’s best to remove them from your data. But, that’s not always the case. Removing outliers is legitimate only for specific reasons.Outliers can be very informative about the subject-area and data collection process. It’s essential to understand how outliers occur and whether they might happen again as a normal part of the process or study area. Unfortunately, resisting the temptation to remove outliers inappropriately can be difficult. Outliers increase the variability in your data, which decreases statistical power. Consequently, excluding outliers can cause your results to become statistically significant. In our case, <b>let's first visualize our data and decide on what to do with the outliers.</b></p>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project11image/4.png" width="800" alt="" /></span></div>
+										</div>
+								</div>
+								<p>As you see, we have very less number of outliers in our features. Especially we have majority of the outliers in <b>hsc percentage</b>. lets see the visualize after removing outliers.</p>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project11image/5.png" width="800" alt="" /></span></div>
+										</div>
+								</div>
+								<h2>Exploratory Data Analysis</h2>
+								<h3>Count of categorical features- Count plot</h3>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project11image/6.png" width="600" alt="" /></span></div>
+										</div>
+								</div>
+								<p>From the visualize we can see that We have <b>more male candidates</b> than female, We have candidates who did <b>commerce</b> as their hsc course and as well as undergrad, <b>Science background</b> candidates are the second highest in both the cases, Candidates from <b>Marketing and Finance</b> dual specialization are high, Most of our candidates from our dataset <b>don't have any work experience</b> and most of our candidates from our dataset <b>got placed</b> in a company.</p>
+								<h3>Distribution Salary- Placed Students</h3>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project11image/7.png" width="500" alt="" /></span></div>
+										</div>
+								</div>
+								<p>Many candidates who got placed received package between <b>2L-4L PA</b>. Only <b>one</b> candidate got around <b>10L PA</b> and the <b>average</b> of the salary is a little more than 2LPA.</p>
+								<h3>Employability score vs Salary- Joint plot</h3>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project11image/8.png" width="400" alt="" /></span></div>
+										</div>
+								</div>
+								<p>Most of the candidates scored around <b>60 percentage</b> got a decent package of <b>around 3 lakhs PA</b>. <b>Not</b> many candidates received salary more than <b>4 lakhs PA</b> and The bottom dense part shows the candidates who were <b>not placed</b>.</p>
+								<h3>Distribution of all percentages</h3>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project11image/9.png" width="500" alt="" /></span></div>
+										</div>
+								</div>
+								<p>All the distributions follow <b>normal distribution</b> except salary feature. Most of the candidates <b>educational performances are between 60-80%</b>. <b>Salary</b> distribution got outliers where few have got salary of 7.5L and 10L PA</p>
+								<h3>Work experience Vs Placement Status</h3>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project11image/10.png" width="500" alt="" /></span></div>
+										</div>
+								</div>
+								<p>We have nearly <b>66.2%</b> of candidates who never had any work experience</b>. Candidates who <b>never had work experience</b> have <b>got hired</b> more than the ones who had experience. We can conclude that <b>work experience doesn't influence</b> a candidate in the recruitment process.</p>
+								<h3>MBA marks vs Placement Status- Does your academic score influence?</h3>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project11image/11.png" width="500" alt="" /></span></div>
+										</div>
+								</div>
+								<p>Comparitively there's a slight difference between the percentage scores between both the groups, But still placed candidates still has an upper hand when it comes to numbers as you can see in the swarm. So as per the plot,percentage do influence the placement status</p>
+								<h3>Does MBA percentage and Employability score correlate?</h3>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project11image/12.png" width="700" alt="" /></span></div>
+										</div>
+								</div>
+								<p>There is <b>no relation</b> between mba percentage and employability test. There are many candidates who <b>haven't got placed</b> when they don't have work experience and most of the candidates who performed better in both tests <b>have got placed</b>.</p>
+								<h3>Is there any gender bias while offering remuneration?</h3>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project11image/13.png" width="800" alt="" /></span></div>
+										</div>
+								</div>
+								<p>The <b>top salaries were given to male</b>. The <b>average salary</b> offered were also <b>higher for male</b>. <b>More male candidates were placed</b> compared to female candidates.</p>
+								<h3>Coorelation between academic percentages</h3>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project11image/14.png" width="600" alt="" /></span></div>
+										</div>
+								</div>
+								<p>Candidates who were good in their academics performed well throughout school,undergrad,mba and even employability test. These percentages <b>don't have any influence over their salary</b>.</p>
+								<h3>Distribution of our data</h3>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project11image/15.png" width="800" alt="" /></span></div>
+										</div>
+								</div>
+								<p>Candidates who has <b>high score in higher secondary and undergrad got placed</b>. Whomever got <b>high scores in their schools got placed</b>. Comparing the number of students who got placed candidates who got <b>good mba percentage and employability percentage</b>.</p>
+								<h2>Data Preprocessing</h2>
+								<p>Now let's welcome our data to the model.Before jumping onto creating models we have to prepare our dataset for the models. We dont have to perform imputation as we dont have any missing values but we have categorical variables which needs to be encoded.</p>
+								<h3>Label Encoding</h3>
+								<p>We have used label encoder function for the category which has only two types of classes.</p>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project11image/16.jpg" width="700" alt="" /></span></div>
+										</div>
+								</div>
+								<h3>One hot encoding</h3>
+								<p>We have used dummies function for the category which has more than two types of classes</p>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project11image/17.jpg" width="800" alt="" /></span></div>
+										</div>
+								</div>
+								<h3>Assigning the target(y) and predictor variable(X)</h3>
+								<p>Our Target is to find whether the candidate is placed or not. We use rest of the features except 'salary' as this won't contribute in prediction(i.e) In real world scenario, students gets salary after they get placed, so we can't use a future feature to predict something which happens in the present</p>
+								<h3>Train and Test Split (80:20)</h3>
+								<p> Next we split the dataset into train and test in 80:20.</p>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project11image/18.jpg" width="200" alt="" /></span></div>
+										</div>
+								</div>
+								<h2>Machine Learning Models</h2>
+								<p>Now let's feed the models with our data Objective: To predict whether a student got placed or not</p>
+								<h3>Logistic Regression</h3>
+								<p>Let's fit the model in logistic regression and figure out the accuracy of our model</p>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project11image/19.jpg" width="500" alt="" /></span></div>
+										</div>
+								</div>
+								<h4>Confusion Matrix and Classification Report</h4>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project11image/20.jpg" width="400" alt="" /></span></div>
+										</div>
+								</div>
+								<p>The Confusion matrix result is telling us that we have <b>9+26</b> correct predictions and <b>1+6</b> incorrect predictions. The Classification report reveals that we have <b>84%</b> precision which means the accuracy that the model classifier not to label an instance positive that is actually negative and it is important to consider precision value because when you are hiring, you want to <b>avoid Type I errors at all cost</b>. They are culture killers. In hiring, a false positive is when you THINK an employee is a good fit, but in actuality they’re not. </p>
+								<h4>ROC Curve</h4>
+								<p>Let's check out the performance of our model through ROC curve</p>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project11image/21.png" width="600" alt="" /></span></div>
+										</div>
+								</div>
+								<p>From the ROC curve we can infer that our logistic model has classified the placed students correctly rather than predicting false positive. <b>The more the ROC curve(blue) lies towards the top left side the better our model is</b>. We can choose <b>0.8 or 0.9</b> for the threshold value which can reap us true positive results</p>
+								<h3>Random Forest</h3>
+								<p>lets use random forest to create a aggregation of trees and produce accurate results and we have an accuracy of 76%</p>
+								<h4>Looking at Feature Importance</h4>
+								<p>Let's see which feature influences more on making the decision and we should cut it off to make our model accurate
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project11image/23.png" width="700" alt="" /></span></div>
+										</div>
+								</div>
+								<p>As we see the <b>school and undergrad specialisations</b> have less influence in classifying the model. But it is really wierd to acknowledge ssc_p influencing more in classifying</p>
+								<h4>Pruning out less important feature</h4>
+								<p>Let's cut off the less important feature and check for model accuracy.</p>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project11image/24.jpg" width="250" alt="" /></span></div>
+										</div>
+								</div>
+								<p>Great. Now We have an <b>accuracy of 81%</b> and the <b>ROC value 75%</b> indicates the models have classified better without having much false positive predictions</p>
+								<h3>K Nearest Neighbours</h3>
+								<p>Let's try out a lazy supervised classification algorithm. Our beloved, KNN</p>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project11image/25.png" width="500" alt="" /></span></div>
+										</div>
+								</div>
+								<p>There are a lot of ups and downs in our graph. If we consider any value between 10-15 we may get an overfitted model. So let's stick onto the first trough. Our <b>K value is 5</b></p>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project11image/26.jpg" width="400" alt="" /></span></div>
+										</div>
+								</div>
+								<p>Our model has precisely classified <b>86%</b> of Not placed categories and <b>74%</b> of Placed categories. To talk in numbers <b>26+6</b> correct classifications and <b>1+9</b> false negative and false positive classification. We should be considering the <b>precision value as our metric</b> because the possibility of commiting False Positive is very crucial in recuritment</p>
+								<h3>Naive Bayes Classifier with Cross Validation</h3>
+								<p>Let's use Naive Bayes model for our dataset. Since our outcome feature has 1,0(placed, not placed) we can go with Bernoulli Naive bayes algorithm and also let's measure the accuracy with cross validation</p>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project11image/27.jpg" width="300" alt="" /></span></div>
+										</div>
+								</div>
+								<p>Our cross validation precision is approximately 73.5%</p>
+								<h3>Support Vector Machine</h3>
+								<p>Let's use SVM to classify our output feature</p>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project11image/28.jpg" width="400" alt="" /></span></div>
+										</div>
+								</div>
+								<p>We have got <b>82% and 81%</b> precision in classifying our model. <b>9+25</b> correctly classified and <b>2+6</b> wrongly classified( False Negative & False Positive)</p>
+								<h3>XGBoost</h3>
+								<p>Let's try our the state of art ensemble model XGBoost. We have used RMSE metrics for model performance</p>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project11image/29.jpg" width="150" alt="" /></span></div>
+										</div>
+								</div>
+								<p>The error value of our model is just <b>0.577.</b> Now let's use cross validation and try to minimise further.</p>
+								<h4>XGBoost with Cross Validation</h4>
+								<p>In this algorithm we are using DMatrix to convert our dataset into a matrix and produce the output in dataframe.</p>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project11image/30.jpg" width="400" alt="" /></span></div>
+										</div>
+								</div>
+								<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image"><img src="images/project11image/31.jpg" width="300" alt="" /></span></div>
+										</div>
+								</div>
+								<p>We have reduced our model error to <b>0.41</b>.</p>
+								<h2>Summary</h2>
+								<p>From the analysis report on Campus Recruitment dataset here are my following conclusions:
+									<li>Educational percentages are highly influential for a candidate to get placed</li>
+									<li>Past work experience doesn't influence much on your masters final placements</li>
+									<li>There are no gender discrimination while hiring, but higher packages were given to male</li>
+									<li>Academic percentages have no relation towards salary package.</li>
+								</p>
+							</p>
+						</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+								
+
+							</section>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+
+					</footer>
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
