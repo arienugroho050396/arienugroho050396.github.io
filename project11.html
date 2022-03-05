@@ -87,14 +87,14 @@ import sklearn
 								<p>For this exercise, the data set (.csv format) is uploaded to my repository github, read into the Jupyter notebook and stored in a Pandas DataFrame. </p>
 								<div class="box alt">
 										<div class="row gtr-50 gtr-uniform">
-											<div class="col-4"><span class="image"><img src="images/project11image/1.jpg" width="800" alt="" /></span></div>
+											<div class="col-4"><span class="image"><img src="images/project11image/1.JPG" width="800" alt="" /></span></div>
 										</div>
 								</div>
 								<p>We have Gender and Educational qualification data. We have all the educational performance(score) data. We have the status of placement and salary details. We can expect null values in salary as candidates who weren't placed would have no salary. Status of placement is our target variable rest of them are independent variable except salary.</p>
 								<h2>Data Preparation and Cleaning</h2>
 								<div class="box alt">
 										<div class="row gtr-50 gtr-uniform">
-											<div class="col-4"><span class="image"><img src="images/project11image/2.jpg" width="300" alt="" /></span></div>
+											<div class="col-4"><span class="image"><img src="images/project11image/2.JPG" width="300" alt="" /></span></div>
 										</div>
 								</div>
 								<p>We have 215 candidate details and there are mixed datatypes in each column. We have few missing values in the salary column as expected since those are the people who didn't get hired. We also have 1 integer,5 float and 8 object datatypes in our dataset</p>
@@ -102,7 +102,7 @@ import sklearn
 								<p>Datasets in the real world are often messy, However, this dataset is almost clean and simple. But lets check the missing value first</p>
 								<div class="box alt">
 										<div class="row gtr-50 gtr-uniform">
-											<div class="col-4"><span class="image"><img src="images/project11image/3.jpg" width="300" alt="" /></span></div>
+											<div class="col-4"><span class="image"><img src="images/project11image/3.JPG" width="300" alt="" /></span></div>
 										</div>
 								</div>
 								<p>There are <b>67 null values</b> in our data, which means 67 unhired candidates. We can't drop these values as this will provide a valuable information on why candidates failed to get hired. We can't impute it with mean/median values and it will go against the context of this dataset and it will show unhired candidates got salary. Our best way to deal with these null values is to <b>impute it with '0'</b> which shows they don't have any income.</p>
@@ -199,14 +199,14 @@ import sklearn
 								<p>We have used label encoder function for the category which has only two types of classes.</p>
 								<div class="box alt">
 										<div class="row gtr-50 gtr-uniform">
-											<div class="col-4"><span class="image"><img src="images/project11image/16.jpg" width="700" alt="" /></span></div>
+											<div class="col-4"><span class="image"><img src="images/project11image/16.JPG" width="700" alt="" /></span></div>
 										</div>
 								</div>
 								<h3>One hot encoding</h3>
 								<p>We have used dummies function for the category which has more than two types of classes</p>
 								<div class="box alt">
 										<div class="row gtr-50 gtr-uniform">
-											<div class="col-4"><span class="image"><img src="images/project11image/17.jpg" width="800" alt="" /></span></div>
+											<div class="col-4"><span class="image"><img src="images/project11image/17.JPG" width="800" alt="" /></span></div>
 										</div>
 								</div>
 								<h3>Assigning the target(y) and predictor variable(X)</h3>
@@ -215,7 +215,7 @@ import sklearn
 								<p> Next we split the dataset into train and test in 80:20.</p>
 								<div class="box alt">
 										<div class="row gtr-50 gtr-uniform">
-											<div class="col-4"><span class="image"><img src="images/project11image/18.jpg" width="200" alt="" /></span></div>
+											<div class="col-4"><span class="image"><img src="images/project11image/18.JPG" width="200" alt="" /></span></div>
 										</div>
 								</div>
 								<h2>Machine Learning Models</h2>
@@ -224,13 +224,13 @@ import sklearn
 								<p>Let's fit the model in logistic regression and figure out the accuracy of our model</p>
 								<div class="box alt">
 										<div class="row gtr-50 gtr-uniform">
-											<div class="col-4"><span class="image"><img src="images/project11image/19.jpg" width="500" alt="" /></span></div>
+											<div class="col-4"><span class="image"><img src="images/project11image/19.JPG" width="500" alt="" /></span></div>
 										</div>
 								</div>
 								<h4>Confusion Matrix and Classification Report</h4>
 								<div class="box alt">
 										<div class="row gtr-50 gtr-uniform">
-											<div class="col-4"><span class="image"><img src="images/project11image/20.jpg" width="400" alt="" /></span></div>
+											<div class="col-4"><span class="image"><img src="images/project11image/20.JPG" width="400" alt="" /></span></div>
 										</div>
 								</div>
 								<p>The Confusion matrix result is telling us that we have <b>9+26</b> correct predictions and <b>1+6</b> incorrect predictions. The Classification report reveals that we have <b>84%</b> precision which means the accuracy that the model classifier not to label an instance positive that is actually negative and it is important to consider precision value because when you are hiring, you want to <b>avoid Type I errors at all cost</b>. They are culture killers. In hiring, a false positive is when you THINK an employee is a good fit, but in actuality they’re not. </p>
@@ -256,7 +256,7 @@ import sklearn
 								<p>Let's cut off the less important feature and check for model accuracy.</p>
 								<div class="box alt">
 										<div class="row gtr-50 gtr-uniform">
-											<div class="col-4"><span class="image"><img src="images/project11image/24.jpg" width="250" alt="" /></span></div>
+											<div class="col-4"><span class="image"><img src="images/project11image/24.JPG" width="250" alt="" /></span></div>
 										</div>
 								</div>
 								<p>Great. Now We have an <b>accuracy of 81%</b> and the <b>ROC value 75%</b> indicates the models have classified better without having much false positive predictions</p>
@@ -270,7 +270,7 @@ import sklearn
 								<p>There are a lot of ups and downs in our graph. If we consider any value between 10-15 we may get an overfitted model. So let's stick onto the first trough. Our <b>K value is 5</b></p>
 								<div class="box alt">
 										<div class="row gtr-50 gtr-uniform">
-											<div class="col-4"><span class="image"><img src="images/project11image/26.jpg" width="400" alt="" /></span></div>
+											<div class="col-4"><span class="image"><img src="images/project11image/26.JPG" width="400" alt="" /></span></div>
 										</div>
 								</div>
 								<p>Our model has precisely classified <b>86%</b> of Not placed categories and <b>74%</b> of Placed categories. To talk in numbers <b>26+6</b> correct classifications and <b>1+9</b> false negative and false positive classification. We should be considering the <b>precision value as our metric</b> because the possibility of commiting False Positive is very crucial in recuritment</p>
@@ -278,7 +278,7 @@ import sklearn
 								<p>Let's use Naive Bayes model for our dataset. Since our outcome feature has 1,0(placed, not placed) we can go with Bernoulli Naive bayes algorithm and also let's measure the accuracy with cross validation</p>
 								<div class="box alt">
 										<div class="row gtr-50 gtr-uniform">
-											<div class="col-4"><span class="image"><img src="images/project11image/27.jpg" width="300" alt="" /></span></div>
+											<div class="col-4"><span class="image"><img src="images/project11image/27.JPG" width="300" alt="" /></span></div>
 										</div>
 								</div>
 								<p>Our cross validation precision is approximately 73.5%</p>
@@ -286,7 +286,7 @@ import sklearn
 								<p>Let's use SVM to classify our output feature</p>
 								<div class="box alt">
 										<div class="row gtr-50 gtr-uniform">
-											<div class="col-4"><span class="image"><img src="images/project11image/28.jpg" width="400" alt="" /></span></div>
+											<div class="col-4"><span class="image"><img src="images/project11image/28.JPG" width="400" alt="" /></span></div>
 										</div>
 								</div>
 								<p>We have got <b>82% and 81%</b> precision in classifying our model. <b>9+25</b> correctly classified and <b>2+6</b> wrongly classified( False Negative & False Positive)</p>
@@ -294,7 +294,7 @@ import sklearn
 								<p>Let's try our the state of art ensemble model XGBoost. We have used RMSE metrics for model performance</p>
 								<div class="box alt">
 										<div class="row gtr-50 gtr-uniform">
-											<div class="col-4"><span class="image"><img src="images/project11image/29.jpg" width="150" alt="" /></span></div>
+											<div class="col-4"><span class="image"><img src="images/project11image/29.JPG" width="150" alt="" /></span></div>
 										</div>
 								</div>
 								<p>The error value of our model is just <b>0.577.</b> Now let's use cross validation and try to minimise further.</p>
@@ -302,12 +302,12 @@ import sklearn
 								<p>In this algorithm we are using DMatrix to convert our dataset into a matrix and produce the output in dataframe.</p>
 								<div class="box alt">
 										<div class="row gtr-50 gtr-uniform">
-											<div class="col-4"><span class="image"><img src="images/project11image/30.jpg" width="400" alt="" /></span></div>
+											<div class="col-4"><span class="image"><img src="images/project11image/30.JPG" width="400" alt="" /></span></div>
 										</div>
 								</div>
 								<div class="box alt">
 										<div class="row gtr-50 gtr-uniform">
-											<div class="col-4"><span class="image"><img src="images/project11image/31.jpg" width="300" alt="" /></span></div>
+											<div class="col-4"><span class="image"><img src="images/project11image/31.JPG" width="300" alt="" /></span></div>
 										</div>
 								</div>
 								<p>We have reduced our model error to <b>0.41</b>.</p>
